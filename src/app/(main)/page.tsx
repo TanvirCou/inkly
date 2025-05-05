@@ -1,7 +1,6 @@
 import Categories from '@/components/home/Categories';
 import FeaturedPost from '@/components/home/FeaturedPost';
 import Posts from '@/components/posts/Posts';
-import Footer from '@/components/shared/Footer/Footer';
 import Link from 'next/link';
 import React from 'react';
 
@@ -75,8 +74,6 @@ const HomePage = () => {
       <FeaturedPost />
 
       <Posts />
-
-      <Footer />
     </div>
   );
 };
