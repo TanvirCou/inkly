@@ -36,7 +36,7 @@ const PostItem = ({ post }: PostItemProps) => {
         <div className="flex flex-col p-5 md:w-2/3 md:p-6">
           {/* Category and date */}
           <div className="mb-3 flex items-center justify-between">
-            <Badge className="cursor-pointer rounded-full bg-indigo-100 px-3 py-1 text-xs font-medium text-indigo-700 hover:bg-indigo-700 hover:text-indigo-100 dark:bg-indigo-700 dark:text-indigo-100">
+            <Badge className="cursor-pointer rounded-full bg-indigo-100 px-3 py-1 text-xs font-medium text-indigo-700 hover:bg-indigo-700 hover:text-indigo-100 dark:bg-indigo-700 dark:text-indigo-100 dark:hover:bg-indigo-100 dark:hover:text-indigo-700">
               {post.category}
             </Badge>
 

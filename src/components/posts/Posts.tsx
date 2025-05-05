@@ -1,8 +1,9 @@
 import React from 'react';
 import PostItem from './PostItem';
+import Link from 'next/link';
 
 // Sample recent posts data
-const recentPosts = [
+export const recentPosts = [
   {
     id: 1,
     title: 'How to Build a Responsive UI with Tailwind CSS',
@@ -61,12 +62,12 @@ const Posts = () => {
           <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
             Recent Posts
           </h2>
-          <a
+          <Link
             href="/posts"
             className="text-sm font-medium text-indigo-600 transition-colors hover:text-indigo-800"
           >
             View all posts →
-          </a>
+          </Link>
         </div>
 
         <div className="space-y-6">
