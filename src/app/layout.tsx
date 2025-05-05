@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
 import './globals.css';
+import { ThemeProvider } from '@/components/theming/theme-provider';
 
 const roboto = Roboto({
   weight: ['100', '300', '400', '500', '700', '900'],
@@ -21,7 +22,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.className} antialiased`}>{children}</body>
+      <body className={`${roboto.className} antialiased`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

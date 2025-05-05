@@ -1,0 +1,103 @@
+'use client';
+
+import * as React from 'react';
+import Link from 'next/link';
+import { Menu } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetTitle,
+} from '@/components/ui/sheet';
+import { ToggleButton } from '@/components/theming/ToggleButton';
+
+const MainNavbar = () => {
+  return (
+    <header className="sticky top-0 z-50 w-full border-b bg-background px-4 md:px-8 lg:px-16">
+      <div className="container flex h-14 items-center justify-between">
+        {/* Logo */}
+        <Link href="/" className="flex items-center">
+          <span className="font-[Poppins] text-2xl font-bold text-indigo-600">
+            Inkly
+          </span>
+        </Link>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden items-center gap-6 md:flex">
+          <Link
+            href="/"
+            className="text-sm font-medium transition-colors hover:text-indigo-600"
+          >
+            Home
+          </Link>
+          <Link
+            href="/most-popular"
+            className="text-sm font-medium transition-colors hover:text-indigo-600"
+          >
+            Most Popular
+          </Link>
+          <Link
+            href="/trending"
+            className="text-sm font-medium transition-colors hover:text-indigo-600"
+          >
+            Trending
+          </Link>
+          <Button
+            variant="default"
+            className="bg-indigo-600 hover:bg-indigo-700 dark:text-white"
+          >
+            Login
+          </Button>
+          <ToggleButton />
+        </nav>
+
+        <div className="flex items-center gap-2 md:hidden">
+          <ToggleButton />
+          {/* Mobile Navigation */}
+          <Sheet>
+            <SheetTrigger asChild className="md:hidden">
+              <Button variant="ghost" size="icon">
+                <Menu className="h-7 w-7" />
+                <span className="sr-only">Toggle menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right">
+              <SheetTitle className="text-left" hidden>
+                Menu
+              </SheetTitle>
+              <div className="flex h-full w-full flex-col items-center justify-center gap-4">
+                <Link
+                  href="/"
+                  className="text-sm font-medium transition-colors hover:text-indigo-600"
+                >
+                  Home
+                </Link>
+                <Link
+                  href="/most-popular"
+                  className="text-sm font-medium transition-colors hover:text-indigo-600"
+                >
+                  Most Popular
+                </Link>
+                <Link
+                  href="/trending"
+                  className="text-sm font-medium transition-colors hover:text-indigo-600"
+                >
+                  Trending
+                </Link>
+                <Button
+                  variant="default"
+                  className="bg-indigo-600 hover:bg-indigo-700 dark:text-white"
+                >
+                  Login
+                </Button>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default MainNavbar;
