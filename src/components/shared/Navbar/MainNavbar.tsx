@@ -11,6 +11,7 @@ import {
   SheetTitle,
 } from '@/components/ui/sheet';
 import { ToggleButton } from '@/components/theming/ToggleButton';
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 
 const MainNavbar = () => {
   return (
@@ -43,16 +44,25 @@ const MainNavbar = () => {
           >
             Trending
           </Link>
-          <Button
-            variant="default"
-            className="bg-indigo-600 hover:bg-indigo-700 dark:text-white"
-          >
-            Login
-          </Button>
+          <SignedOut>
+            <Link
+              href="/sign-in"
+              className="rounded-md bg-indigo-600 px-4 py-1.5 text-sm font-medium text-white hover:bg-indigo-700 dark:text-white"
+            >
+              Login
+            </Link>
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+
           <ToggleButton />
         </nav>
 
         <div className="flex items-center gap-2 md:hidden">
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
           <ToggleButton />
           {/* Mobile Navigation */}
           <Sheet>
@@ -85,12 +95,14 @@ const MainNavbar = () => {
                 >
                   Trending
                 </Link>
-                <Button
-                  variant="default"
-                  className="bg-indigo-600 hover:bg-indigo-700 dark:text-white"
-                >
-                  Login
-                </Button>
+                <SignedOut>
+                  <Link
+                    href="/sign-in"
+                    className="rounded-md bg-indigo-600 px-4 py-1.5 text-sm font-medium text-white hover:bg-indigo-700 dark:text-white"
+                  >
+                    Login
+                  </Link>
+                </SignedOut>
               </div>
             </SheetContent>
           </Sheet>

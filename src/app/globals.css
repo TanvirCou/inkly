@@ -6,6 +6,23 @@
   animation-duration: 10000ms;
 }
 
+.react-quill {
+  border: none !important;
+}
+
+/* Remove border from the editable area */
+.ql-container {
+  border: none !important;
+  min-height: 200px;
+  
+}
+
+/* Optional: Remove border from toolbar if needed */
+.ql-toolbar {
+  /* border: none !important; */
+  border-radius: 5px;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
