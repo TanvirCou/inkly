@@ -1,13 +1,23 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Calendar, Facebook, Instagram, Twitter } from 'lucide-react';
+import {
+  Calendar,
+  Facebook,
+  Instagram,
+  Twitter,
+  MessageCircle,
+  Trash2,
+} from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
+
 import { getSinglePost } from '@/lib/api/fetch-posts';
 import { Post } from '@/lib/types/types';
 import { format } from 'date-fns';
-
+import CreateComment from '@/components/comments/CreateComment';
+import AllComments from '@/components/comments/AllComments';
+import RelatedPosts from '@/components/posts/RelatedPosts';
 const PostDetailPage = async ({
   params,
 }: {
@@ -53,7 +63,7 @@ const PostDetailPage = async ({
         </div>
       </div>
 
-      {/* Post Content and Author - Horizontal layout with sticky author details */}
+      {/* Main Content and Author Section */}
       <div className="flex flex-col-reverse gap-8 lg:flex-row">
         {/* Main content */}
         <div className="lg:w-3/4">
@@ -62,26 +72,10 @@ const PostDetailPage = async ({
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
-          {/* Tags */}
-          <div className="mt-10 border-t border-gray-100 pt-6">
-            <h3 className="mb-3 text-lg font-semibold">Related Tags</h3>
-            <div className="flex flex-wrap gap-2">
-              <Badge className="cursor-pointer bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-indigo-700 dark:text-indigo-100 dark:hover:bg-indigo-100 dark:hover:text-indigo-700">
-                Next.js
-              </Badge>
-              <Badge className="cursor-pointer bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-indigo-700 dark:text-indigo-100 dark:hover:bg-indigo-100 dark:hover:text-indigo-700">
-                React
-              </Badge>
-              <Badge className="cursor-pointer bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-indigo-700 dark:text-indigo-100 dark:hover:bg-indigo-100 dark:hover:text-indigo-700">
-                SSR
-              </Badge>
-              <Badge className="cursor-pointer bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-indigo-700 dark:text-indigo-100 dark:hover:bg-indigo-100 dark:hover:text-indigo-700">
-                Frontend
-              </Badge>
-              <Badge className="cursor-pointer bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-indigo-700 dark:text-indigo-100 dark:hover:bg-indigo-100 dark:hover:text-indigo-700">
-                Web Development
-              </Badge>
-            </div>
+          <div className="mt-10 border-t border-gray-900 pt-6 dark:border-gray-100">
+            <CreateComment postId={post._id} />
+
+            <AllComments postId={post._id} />
           </div>
         </div>
 
@@ -153,6 +147,8 @@ const PostDetailPage = async ({
           </div>
         </div>
       </div>
+
+      <RelatedPosts category={post.category} postId={post._id} />
     </article>
   );
 };

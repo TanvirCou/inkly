@@ -39,3 +39,19 @@ export async function getSinglePost(slug: string) {
   }
   return res.json();
 }
+
+export async function getRelatedPosts(category: string) {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/posts?cat=${category}`,
+    {
+      next: {
+        revalidate: 10,
+      },
+    }
+  );
+
+  if (!res.ok) {
+    throw new Error('Error in fetching data');
+  }
+  return res.json();
+}

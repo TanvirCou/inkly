@@ -19,3 +19,13 @@ export type Post = {
   updatedAt: string; // ISO date string
   __v: number;
 };
+
+export type Comment = {
+  _id: string;
+  user: User;
+  post: string;
+  desc: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+};
