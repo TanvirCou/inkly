@@ -2,9 +2,13 @@ import React from 'react';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 
-const FilterSearch = () => {
+type FilterSearchProps = {
+  onFilterChange: (value: string) => void;
+};
+
+const FilterSearch = ({ onFilterChange }: FilterSearchProps) => {
   const handleChange = (value: string) => {
-    console.log(value);
+    onFilterChange(value);
   };
 
   return (
@@ -21,7 +25,7 @@ const FilterSearch = () => {
         </div>
         <div className="flex items-center space-x-2">
           <RadioGroupItem
-            value="most-popular"
+            value="popular"
             id="most-popular"
             className="h-3 w-3 rounded-none border-[1.5px] border-indigo-600 data-[state=checked]:bg-indigo-500"
           />

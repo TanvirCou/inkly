@@ -33,13 +33,13 @@ const MainNavbar = () => {
             Home
           </Link>
           <Link
-            href="/most-popular"
+            href="/posts?sort=popular"
             className="text-sm font-medium transition-colors hover:text-indigo-600"
           >
             Most Popular
           </Link>
           <Link
-            href="/trending"
+            href="/posts?sort=trending"
             className="text-sm font-medium transition-colors hover:text-indigo-600"
           >
             Trending
@@ -84,13 +84,13 @@ const MainNavbar = () => {
                   Home
                 </Link>
                 <Link
-                  href="/most-popular"
+                  href="/posts?sort=popular"
                   className="text-sm font-medium transition-colors hover:text-indigo-600"
                 >
                   Most Popular
                 </Link>
                 <Link
-                  href="/trending"
+                  href="/posts?sort=trending"
                   className="text-sm font-medium transition-colors hover:text-indigo-600"
                 >
                   Trending

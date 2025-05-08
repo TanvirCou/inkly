@@ -2,19 +2,25 @@
 import React from 'react';
 import { Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
-
+import { useRouter, useSearchParams } from 'next/navigation';
 const Searchbar = ({ type }: { type?: string }) => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
   const handleEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    e.preventDefault();
-    // if (e.key === "Enter") {
-    //     const query = e.target.value;
-    //     if (location.pathname === "/posts") {
-    //         setSearchParams({ ...Object.fromEntries(searchParams), search: query })
-    //     } else {
-    //         navigate(`/posts?search=${query}`)
-    //     }
-    // }
+    if (e.key === 'Enter') {
+      if (type === 'posts') {
+        const params = new URLSearchParams(searchParams.toString());
+        params.set('search', e.currentTarget.value);
+        router.replace(`?${params.toString()}`);
+      } else {
+        const params = new URLSearchParams(searchParams.toString());
+        params.set('search', e.currentTarget.value);
+        router.replace(`/posts?${params.toString()}`);
+      }
+    }
   };
+
   return (
     <div
       className={`flex items-center rounded-full border border-gray-200 bg-white px-2 py-0.5 shadow-sm transition-all duration-200 focus-within:border-indigo-400 focus-within:ring-2 focus-within:ring-indigo-300 hover:shadow-md dark:border-gray-600 dark:bg-primary-foreground ${type === 'posts' ? 'mt-2 w-full md:max-w-md' : 'w-48 md:w-64'}`}
