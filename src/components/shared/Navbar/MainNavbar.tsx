@@ -44,6 +44,12 @@ const MainNavbar = () => {
           >
             Trending
           </Link>
+          <Link
+            href="/about"
+            className="text-sm font-medium transition-colors hover:text-indigo-600"
+          >
+            About
+          </Link>
           <SignedOut>
             <Link
               href="/sign-in"
