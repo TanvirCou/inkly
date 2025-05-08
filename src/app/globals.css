@@ -18,7 +18,8 @@
 
 /* Optional: Remove border from toolbar if needed */
 .ql-toolbar {
-  /* border: none !important; */
+  border: none !important;
+  border-bottom: 1px solid gray !important;
   border-radius: 5px;
 }
 

@@ -24,7 +24,7 @@ const RelatedPosts = async ({
     <div className="mt-12 border-t border-gray-800 pt-6 dark:border-gray-100">
       <h3 className="mb-6 text-2xl font-semibold">Related Posts</h3>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {filteredPosts ? (
+        {!!filteredPosts &&
           filteredPosts.map((post: Post) => (
             <Card key={post._id} className="overflow-hidden">
               <div className="relative h-48">
@@ -55,13 +55,15 @@ const RelatedPosts = async ({
                 </div>
               </CardFooter>
             </Card>
-          ))
-        ) : (
-          <div>
-            <p className="font-medium">No posts found</p>
-          </div>
-        )}
+          ))}
       </div>
+      {filteredPosts.length === 0 && (
+        <div className="flex h-[200px] w-full items-center justify-center">
+          <p className="text-lg font-medium text-gray-600 dark:text-gray-300">
+            No related posts found
+          </p>
+        </div>
+      )}
     </div>
   );
 };

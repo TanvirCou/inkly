@@ -75,9 +75,17 @@ const Posts = async () => {
         </div>
 
         <div className="space-y-6">
-          {recentPosts.map((post: Post) => (
-            <PostItem key={post._id} post={post} />
-          ))}
+          {recentPosts && recentPosts.length > 0 ? (
+            recentPosts.map((post: Post) => (
+              <PostItem key={post._id} post={post} />
+            ))
+          ) : (
+            <div className="flex h-[200px] w-full items-center justify-center">
+              <p className="text-lg font-medium text-gray-600 dark:text-gray-300">
+                No posts found
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </section>

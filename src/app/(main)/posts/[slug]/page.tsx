@@ -72,7 +72,7 @@ const PostDetailPage = async ({
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
-          <div className="mt-10 border-t border-gray-900 pt-6 dark:border-gray-100">
+          <div className="mt-10 border-t border-gray-800 pt-6 dark:border-gray-100">
             <CreateComment postId={post._id} />
 
             <AllComments postId={post._id} />

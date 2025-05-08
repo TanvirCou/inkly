@@ -75,7 +75,11 @@ const AllPost = ({ data }: AllPostProps) => {
           ) : posts && posts.length > 0 ? (
             posts.map((post: Post) => <PostItem key={post._id} post={post} />)
           ) : (
-            <p>No posts found</p>
+            <div className="flex h-full w-full items-center justify-center">
+              <p className="text-lg font-medium text-gray-600 dark:text-gray-300">
+                No posts found
+              </p>
+            </div>
           )}
         </div>
 

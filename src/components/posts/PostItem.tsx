@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Calendar } from 'lucide-react';
 import { Badge } from '../ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Card } from '@/components/ui/card';
 import { Post } from '@/lib/types/types';
 import { format } from 'date-fns';
 
@@ -13,7 +14,7 @@ interface PostItemProps {
 
 const PostItem = ({ post }: PostItemProps) => {
   return (
-    <article className="mb-6 w-full overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:shadow-md dark:border-gray-800 dark:bg-primary-foreground">
+    <Card className="mb-6 w-full overflow-hidden border border-gray-100 bg-indigo-50 shadow-sm transition-all duration-300 hover:shadow-md dark:border-gray-800 dark:bg-primary-foreground">
       <div className="flex flex-col md:flex-row">
         {/* Image section */}
         <div className="relative h-60 md:h-auto md:w-1/3">
@@ -71,7 +72,7 @@ const PostItem = ({ post }: PostItemProps) => {
           </div>
         </div>
       </div>
-    </article>
+    </Card>
   );
 };
 
