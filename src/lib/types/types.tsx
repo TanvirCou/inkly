@@ -68,6 +68,7 @@ export type Category = {
 export type ActivityType = {
   _id: string;
   message: string;
+  user: User;
   createdAt: string;
   updatedAt: string;
   __v: number;

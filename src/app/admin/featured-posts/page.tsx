@@ -1,8 +1,7 @@
-import { allPostsColumns } from '@/components/admin/table/all-posts-column';
 import { PostsTable } from '@/components/admin/table/posts-table';
 import { featuredPostsColumns } from '@/components/admin/table/featured-posts-column';
 import { Button } from '@/components/ui/button';
-import { getAllPosts, getFeaturedPosts } from '@/lib/api/fetch-posts';
+import { getFeaturedPosts } from '@/lib/api/fetch-posts';
 import { PlusCircle } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';

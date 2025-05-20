@@ -1,6 +1,5 @@
 'use client';
 
-import { cn } from '@/lib/utils';
 import { ColumnDef } from '@tanstack/react-table';
 import {
   ArrowUpDown,
@@ -209,7 +208,6 @@ export const allPostsColumns: ColumnDef<Post>[] = [
         const newDate = new Date().toISOString();
 
         if (res.ok) {
-          const data = await res.json();
           const formattedDate = format(
             parseISO(newDate),
             "MMMM d, yyyy 'at' h:mm a"

@@ -1,7 +1,5 @@
 import React from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Button } from '../ui/button';
-import { Trash2 } from 'lucide-react';
 import { getComments } from '@/lib/api/fetch-comments';
 import { Comment } from '@/lib/types/types';
 import { formatDistanceToNow } from 'date-fns';

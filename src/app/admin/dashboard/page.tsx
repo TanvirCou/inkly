@@ -3,11 +3,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Users,
   FileText,
-  MessageSquare,
-  TrendingUp,
   Activity,
   Clock,
-  Shield,
+  MessageSquareText,
+  ShieldHalf,
 } from 'lucide-react';
 import { getAllUsers, getUsers } from '@/lib/api/fetch-users';
 import { getAllComments } from '@/lib/api/fetch-comments';
@@ -69,7 +68,7 @@ const page = async () => {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Comments</CardTitle>
-            <MessageSquare className="h-4 w-4 text-muted-foreground" />
+            <MessageSquareText className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{allComments.length}</div>
@@ -79,7 +78,7 @@ const page = async () => {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Admin</CardTitle>
-            <Shield className="h-4 w-4 text-muted-foreground" />
+            <ShieldHalf className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{admin.length}</div>
@@ -117,7 +116,7 @@ const page = async () => {
                     </div>
                   </div>
                 ))}
-              {!allActivities && (
+              {allActivities.length === 0 && (
                 <div className="flex min-h-[200px] w-full items-center justify-center text-muted-foreground">
                   No activities found
                 </div>

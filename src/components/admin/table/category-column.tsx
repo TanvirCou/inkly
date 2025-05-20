@@ -1,17 +1,7 @@
 'use client';
 
-import { cn } from '@/lib/utils';
 import { ColumnDef } from '@tanstack/react-table';
-import {
-  ArrowUpDown,
-  Eye,
-  FilePenLine,
-  MoreHorizontal,
-  Star,
-  Trash,
-  Trash2,
-  UserRoundX,
-} from 'lucide-react';
+import { MoreHorizontal, Trash2 } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -19,12 +9,10 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Admin, Category, Post, User } from '@/lib/types/types';
-import Image from 'next/image';
+import { Category } from '@/lib/types/types';
 import { format, parseISO } from 'date-fns';
 import {
   AlertDialog,
@@ -37,7 +25,6 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@clerk/nextjs';
 import { useToast } from '@/hooks/use-toast';
@@ -105,7 +92,6 @@ export const categoryColumns: ColumnDef<Category>[] = [
         const newDate = new Date().toISOString();
 
         if (res.ok) {
-          const data = await res.json();
           const formattedDate = format(
             parseISO(newDate),
             "MMMM d, yyyy 'at' h:mm a"

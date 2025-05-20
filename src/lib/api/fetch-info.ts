@@ -1,5 +1,3 @@
-import { auth } from '@clerk/nextjs/server';
-
 export async function getWebInfo() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/webinfo`, {
     next: {

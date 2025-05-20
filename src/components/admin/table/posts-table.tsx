@@ -31,7 +31,6 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { DataTablePagination } from './Pagination';
-import { Post } from '@/lib/types/types';
 
 interface AllPostsTableProps<Post, TValue> {
   columns: ColumnDef<Post, TValue>[];

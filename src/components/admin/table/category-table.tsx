@@ -31,7 +31,6 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { DataTablePagination } from './Pagination';
-import { Category } from '@/lib/types/types';
 
 interface CategoryTableProps<Category, TValue> {
   columns: ColumnDef<Category, TValue>[];

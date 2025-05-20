@@ -31,7 +31,6 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { DataTablePagination } from './Pagination';
-import { Admin } from '@/lib/types/types';
 
 interface AdminTableProps<Admin, TValue> {
   columns: ColumnDef<Admin, TValue>[];

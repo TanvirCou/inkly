@@ -61,7 +61,6 @@ const CreateAdmin = () => {
     );
 
     if (res.ok) {
-      const data = await res.json();
       const formattedDate = format(
         parseISO(new Date().toISOString()),
         "MMMM d, yyyy 'at' h:mm a"

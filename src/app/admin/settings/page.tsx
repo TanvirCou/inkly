@@ -8,7 +8,6 @@ import {
 } from '@/components/ui/card';
 import { getWebInfo } from '@/lib/api/fetch-info';
 import { Info } from '@/lib/types/types';
-
 import { Settings } from 'lucide-react';
 
 export default async function SettingsPage() {

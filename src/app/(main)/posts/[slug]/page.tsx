@@ -1,14 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import {
-  Calendar,
-  Facebook,
-  Instagram,
-  Twitter,
-  MessageCircle,
-  Trash2,
-} from 'lucide-react';
+import { Calendar, Facebook, Instagram, Twitter } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 
