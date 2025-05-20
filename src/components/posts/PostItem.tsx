@@ -66,7 +66,7 @@ const PostItem = ({ post }: PostItemProps) => {
                 </Avatar>
               </div>
               <span className="text-sm font-medium text-gray-800 dark:text-white">
-                {post.user.username}
+                {post.user?.firstName} {post.user?.lastName}
               </span>
             </div>
           </div>

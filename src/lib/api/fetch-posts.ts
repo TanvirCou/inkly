@@ -1,8 +1,6 @@
 export async function getAllPosts() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`, {
-    next: {
-      revalidate: 10,
-    },
+    cache: 'no-store',
   });
 
   if (!res.ok) {
@@ -15,9 +13,7 @@ export async function getFeaturedPosts() {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/posts?featured=true`,
     {
-      next: {
-        revalidate: 10,
-      },
+      cache: 'no-store',
     }
   );
 
@@ -29,9 +25,7 @@ export async function getFeaturedPosts() {
 
 export async function getSinglePost(slug: string) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts/${slug}`, {
-    next: {
-      revalidate: 10,
-    },
+    cache: 'no-store',
   });
 
   if (!res.ok) {
@@ -44,9 +38,7 @@ export async function getRelatedPosts(category: string) {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/posts?cat=${category}`,
     {
-      next: {
-        revalidate: 10,
-      },
+      cache: 'no-store',
     }
   );
 

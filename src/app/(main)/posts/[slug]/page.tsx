@@ -26,6 +26,8 @@ const PostDetailPage = async ({
   const { slug } = await params;
   const post: Post = await getSinglePost(slug);
 
+  console.log(post);
+
   return (
     <article className="container mx-auto max-w-6xl px-4 py-10">
       {/* Post Header - Horizontal layout with title/desc on left, image on right */}
@@ -84,15 +86,15 @@ const PostDetailPage = async ({
           <div className="rounded-xl border border-gray-100 bg-indigo-50 p-6 shadow-sm dark:border-gray-800 dark:bg-primary-foreground lg:sticky lg:top-20">
             <div className="mb-4 flex items-center gap-4">
               <Avatar className="h-12 w-12">
-                <AvatarImage src={post.user?.img} alt={post.user?.username} />
-                <AvatarFallback>
-                  {post.user?.username.substring(0, 2)}
+                <AvatarImage src={post.user?.img} alt={post.user?.firstName} />
+                <AvatarFallback className="uppercase">
+                  {post.user?.firstName.substring(0, 2)}
                 </AvatarFallback>
               </Avatar>
 
               <div>
                 <h3 className="font-semibold text-gray-900 dark:text-gray-100">
-                  {post.user?.username}
+                  {post.user?.firstName} {post.user.lastName}
                 </h3>
                 <p className="text-sm text-gray-500 dark:text-gray-300">
                   Senior Developer

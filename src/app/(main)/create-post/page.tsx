@@ -179,7 +179,7 @@ const CreatePostPage = () => {
                   <Input
                     placeholder="My Awesome Blog"
                     {...field}
-                    className="border-none text-center placeholder:text-2xl focus:border-none focus:outline-none md:text-2xl"
+                    className="rounded-none border-x-0 border-b-2 border-t-0 text-center placeholder:text-2xl focus:border-none focus:outline-none md:text-2xl"
                   />
                 </FormControl>
                 <FormMessage />

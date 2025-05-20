@@ -66,7 +66,9 @@ const FeaturedPost = async () => {
                       <div className="mt-4 flex items-center justify-between text-sm text-gray-500 dark:text-white">
                         <div className="flex items-center gap-2">
                           <User size={14} className="text-indigo-500" />
-                          <span>{post.user.username}</span>
+                          <span>
+                            {post.user?.firstName} {post.user?.lastName}
+                          </span>
                         </div>
 
                         <div className="flex items-center gap-2 dark:text-white">

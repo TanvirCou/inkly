@@ -1,5 +1,3 @@
-'use client';
-
 import * as React from 'react';
 import Link from 'next/link';
 import { Menu } from 'lucide-react';
@@ -11,9 +9,14 @@ import {
   SheetTitle,
 } from '@/components/ui/sheet';
 import { ToggleButton } from '@/components/theming/ToggleButton';
-import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
+import { SignedOut } from '@clerk/nextjs';
+import UserProfileButton from './UserProfileButton';
+import { auth } from '@clerk/nextjs/server';
 
-const MainNavbar = () => {
+const MainNavbar = async () => {
+  const { sessionClaims } = await auth();
+  const role = (sessionClaims?.metadata as { role: string })?.role;
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background px-4 md:px-8 lg:px-16">
       <div className="container flex h-16 items-center justify-between">
@@ -44,12 +47,14 @@ const MainNavbar = () => {
           >
             Trending
           </Link>
-          <Link
-            href="/about"
-            className="text-sm font-medium transition-colors hover:text-indigo-600"
-          >
-            About
-          </Link>
+          {role === 'admin' && (
+            <Link
+              href="/admin/dashboard"
+              className="text-sm font-medium transition-colors hover:text-indigo-600"
+            >
+              Admin-Dashboard
+            </Link>
+          )}
           <SignedOut>
             <Link
               href="/sign-in"
@@ -58,17 +63,14 @@ const MainNavbar = () => {
               Login
             </Link>
           </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
+
+          <UserProfileButton />
 
           <ToggleButton />
         </nav>
 
-        <div className="flex items-center gap-2 md:hidden">
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
+        <div className="flex items-center gap-3 md:hidden">
+          <UserProfileButton />
           <ToggleButton />
           {/* Mobile Navigation */}
           <Sheet>
@@ -101,6 +103,14 @@ const MainNavbar = () => {
                 >
                   Trending
                 </Link>
+                {role === 'admin' && (
+                  <Link
+                    href="/admin/dashboard"
+                    className="text-sm font-medium transition-colors hover:text-indigo-600"
+                  >
+                    Admin-Dashboard
+                  </Link>
+                )}
                 <SignedOut>
                   <Link
                     href="/sign-in"

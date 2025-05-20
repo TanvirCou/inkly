@@ -1,22 +1,22 @@
 import Categories from '@/components/home/Categories';
 import FeaturedPost from '@/components/home/FeaturedPost';
 import Posts from '@/components/posts/Posts';
+import { getWebInfo } from '@/lib/api/fetch-info';
+import { Info } from '@/lib/types/types';
 import Link from 'next/link';
 import React from 'react';
 
-const HomePage = () => {
+const HomePage = async () => {
+  const info: Info = await getWebInfo();
+
   return (
     <div className="flex flex-col gap-3 px-4 py-4 sm:px-6 md:px-8 lg:px-16">
       <div className="flex items-center justify-between">
         <div className="flex w-full flex-col gap-2 md:w-[70%] lg:w-[60%]">
           <p className="text-2xl font-bold md:text-4xl/[60px] lg:text-[52px]">
-            Write Blogs. Read Stories. Stay Inspired.
+            {info.title}
           </p>
-          <p className="lg:text-md text-sm">
-            A modern platform to write, publish, and explore blogs. Share your
-            voice, discover new perspectives, and stay inspired by stories from
-            around the world.
-          </p>
+          <p className="lg:text-md text-sm">{info.desc}</p>
         </div>
 
         <div>
