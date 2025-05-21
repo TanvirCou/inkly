@@ -55,6 +55,14 @@ const MainNavbar = async () => {
               Admin-Dashboard
             </Link>
           )}
+          {role === 'user' && (
+            <Link
+              href="/user/information"
+              className="text-sm font-medium transition-colors hover:text-indigo-600"
+            >
+              User-Dashboard
+            </Link>
+          )}
           <SignedOut>
             <Link
               href="/sign-in"

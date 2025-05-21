@@ -11,6 +11,8 @@ import { format } from 'date-fns';
 import CreateComment from '@/components/comments/CreateComment';
 import AllComments from '@/components/comments/AllComments';
 import RelatedPosts from '@/components/posts/RelatedPosts';
+import SavedPostButton from '@/components/posts/SavedPostButton';
+import { getSingleUser } from '@/lib/api/fetch-users';
 const PostDetailPage = async ({
   params,
 }: {
@@ -18,8 +20,7 @@ const PostDetailPage = async ({
 }) => {
   const { slug } = await params;
   const post: Post = await getSinglePost(slug);
-
-  console.log(post);
+  const user = await getSingleUser();
 
   return (
     <article className="container mx-auto max-w-6xl px-4 py-10">
@@ -27,9 +28,12 @@ const PostDetailPage = async ({
       <div className="mb-10 flex flex-col gap-8 lg:flex-row">
         {/* Title and metadata */}
         <div className="flex flex-col justify-center lg:w-1/2">
-          <Badge className="mb-4 self-start bg-indigo-100 text-indigo-700 hover:bg-indigo-200 dark:bg-indigo-700 dark:text-indigo-100">
-            <p className="first-letter:uppercase">{post.category}</p>
-          </Badge>
+          <div className="mb-4 flex items-center justify-between">
+            <Badge className="bg-indigo-100 text-indigo-700 hover:bg-indigo-200 dark:bg-indigo-700 dark:text-indigo-100">
+              <p className="first-letter:uppercase">{post.category}</p>
+            </Badge>
+            <SavedPostButton postId={post._id} savedPosts={user.savedPosts} />
+          </div>
 
           <h1 className="mb-4 text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
             {post.title}

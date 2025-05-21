@@ -1,3 +1,5 @@
+import { auth } from '@clerk/nextjs/server';
+
 export async function getAllPosts() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`, {
     cache: 'no-store',
@@ -41,6 +43,37 @@ export async function getRelatedPosts(category: string) {
       cache: 'no-store',
     }
   );
+
+  if (!res.ok) {
+    throw new Error('Error in fetching data');
+  }
+  return res.json();
+}
+
+export async function getAuthorPosts(author: string) {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/posts?author=${author}`,
+    {
+      cache: 'no-store',
+    }
+  );
+
+  if (!res.ok) {
+    throw new Error('Error in fetching data');
+  }
+  return res.json();
+}
+
+export async function getSavedPosts() {
+  const { getToken } = await auth();
+  const token = await getToken();
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/saved`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  });
 
   if (!res.ok) {
     throw new Error('Error in fetching data');
