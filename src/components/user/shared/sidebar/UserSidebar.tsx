@@ -130,7 +130,7 @@ async function UserSidebar() {
                   <Link href="/user-profile">Profile</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem className="cursor-pointer">
-                  <Link href="/admin/activity">Activity</Link>
+                  <Link href="/user/activity">Activity</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem
                   asChild

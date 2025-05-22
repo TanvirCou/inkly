@@ -193,7 +193,7 @@ const EditPost = ({ post }: EditPostProps) => {
                   <Textarea
                     placeholder="This is a description of my blog"
                     {...field}
-                    className="shadow-sm focus:border-indigo-500 focus:outline-indigo-500 focus:ring-indigo-500 focus:ring-offset-0 dark:bg-primary-foreground"
+                    className="bg-gray-50 shadow-sm focus:border-indigo-500 focus:outline-indigo-500 focus:ring-indigo-500 focus:ring-offset-0 dark:bg-primary-foreground"
                   />
                 </FormControl>
                 <FormMessage />
@@ -210,7 +210,7 @@ const EditPost = ({ post }: EditPostProps) => {
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                   >
-                    <SelectTrigger className="w-full dark:bg-primary-foreground">
+                    <SelectTrigger className="w-full bg-gray-50 dark:bg-primary-foreground">
                       <SelectValue placeholder="General" />
                     </SelectTrigger>
                     <SelectContent>
@@ -230,7 +230,7 @@ const EditPost = ({ post }: EditPostProps) => {
           <div className="relative">
             <ReactQuill
               theme="snow"
-              className="w-full rounded-md bg-white shadow-md dark:bg-primary-foreground"
+              className="w-full rounded-md bg-gray-50 shadow-md dark:bg-primary-foreground"
               value={value}
               onChange={setValue}
             />

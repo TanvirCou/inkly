@@ -208,7 +208,7 @@ export const userPostsColumns: ColumnDef<Post>[] = [
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild className="cursor-pointer">
-              <Link href={`/admin/edit-post/${post.slug}`}>
+              <Link href={`/user/edit-post/${post.slug}`}>
                 <FilePenLine className="mr-1" />
                 Edit
               </Link>

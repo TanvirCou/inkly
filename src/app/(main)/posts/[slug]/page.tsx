@@ -13,6 +13,8 @@ import AllComments from '@/components/comments/AllComments';
 import RelatedPosts from '@/components/posts/RelatedPosts';
 import SavedPostButton from '@/components/posts/SavedPostButton';
 import { getSingleUser } from '@/lib/api/fetch-users';
+import { auth } from '@clerk/nextjs/server';
+
 const PostDetailPage = async ({
   params,
 }: {
@@ -20,7 +22,11 @@ const PostDetailPage = async ({
 }) => {
   const { slug } = await params;
   const post: Post = await getSinglePost(slug);
-  const user = await getSingleUser();
+  const currentUser = await getSingleUser();
+
+  const { sessionClaims } = await auth();
+
+  const role = (sessionClaims?.metadata as { role?: string })?.role;
 
   return (
     <article className="container mx-auto max-w-6xl px-4 py-10">
@@ -32,7 +38,12 @@ const PostDetailPage = async ({
             <Badge className="bg-indigo-100 text-indigo-700 hover:bg-indigo-200 dark:bg-indigo-700 dark:text-indigo-100">
               <p className="first-letter:uppercase">{post.category}</p>
             </Badge>
-            <SavedPostButton postId={post._id} savedPosts={user.savedPosts} />
+            {role === 'user' && (
+              <SavedPostButton
+                postId={post._id}
+                savedPosts={currentUser.savedPosts}
+              />
+            )}
           </div>
 
           <h1 className="mb-4 text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">

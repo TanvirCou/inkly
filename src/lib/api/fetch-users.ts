@@ -28,9 +28,6 @@ export async function getSingleUser() {
     },
   });
 
-  if (!res.ok) {
-    throw new Error('Error in fetching data');
-  }
   return res.json();
 }
 
