@@ -7,6 +7,7 @@ import { extractRouterConfig } from 'uploadthing/server';
 import { ourFileRouter } from '@/app/api/uploadthing/core';
 import { ClerkLoaded, ClerkLoading, ClerkProvider } from '@clerk/nextjs';
 import { Toaster } from '@/components/ui/toaster';
+import Loading from './loading';
 
 const roboto = Roboto({
   weight: ['100', '300', '400', '500', '700', '900'],
@@ -30,25 +31,25 @@ export default function RootLayout({
       <html lang="en" suppressHydrationWarning>
         <body className={`${roboto.className} antialiased`}>
           <div>
-            <ClerkLoading>
-              <div className="flex h-screen items-center justify-center">
-                <p>Loading....</p>
-              </div>
-            </ClerkLoading>
-            <ClerkLoaded>
-              <ThemeProvider
-                attribute="class"
-                defaultTheme="system"
-                enableSystem
-                disableTransitionOnChange
-              >
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <ClerkLoading>
+                <div className="flex h-screen items-center justify-center">
+                  <Loading />
+                </div>
+              </ClerkLoading>
+              <ClerkLoaded>
                 <NextSSRPlugin
                   routerConfig={extractRouterConfig(ourFileRouter)}
                 />
                 {children}
                 <Toaster />
-              </ThemeProvider>
-            </ClerkLoaded>
+              </ClerkLoaded>
+            </ThemeProvider>
           </div>
         </body>
       </html>
