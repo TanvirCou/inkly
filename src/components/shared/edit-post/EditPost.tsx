@@ -40,7 +40,7 @@ import UploadThingButton from '@/components/create-post/UploadThingButton';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@clerk/nextjs';
 import { useToast } from '@/hooks/use-toast';
-import { Post } from '@/lib/types/types';
+import { Category, Post } from '@/lib/types/types';
 
 const formSchema = z.object({
   title: z
@@ -54,46 +54,12 @@ const formSchema = z.object({
   category: z.string(),
 });
 
-const categories = [
-  {
-    label: 'General',
-    value: 'general',
-  },
-  {
-    label: 'Web Design',
-    value: 'web-design',
-  },
-  {
-    label: 'Development',
-    value: 'development',
-  },
-  {
-    label: 'Databases',
-    value: 'databases',
-  },
-  {
-    label: 'Search Engines',
-    value: 'search-engines',
-  },
-  {
-    label: 'Marketing',
-    value: 'marketing',
-  },
-  {
-    label: 'Gaming',
-    value: 'gaming',
-  },
-  {
-    label: 'Fotball',
-    value: 'fotball',
-  },
-];
-
 type EditPostProps = {
   post: Post;
+  categories: Category[];
 };
 
-const EditPost = ({ post }: EditPostProps) => {
+const EditPost = ({ post, categories }: EditPostProps) => {
   const [value, setValue] = useState(post.content);
   const [cover, setCover] = useState<string>(post.img);
   const [video, setVideo] = useState<string>('');

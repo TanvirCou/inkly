@@ -88,10 +88,11 @@ const SettingsForm = ({ info }: { info: Info }) => {
             <FormItem>
               <FormLabel>Website HeadLine</FormLabel>
               <FormControl>
-                <Input placeholder="My Awesome Blog" {...field} />
+                <Input placeholder="Best Coffee Shop in Brooklyn" {...field} />
               </FormControl>
               <FormDescription>
-                This will be displayed in the homepage.
+                A prominent headline that highlights your website’s main
+                message.
               </FormDescription>
               <FormMessage />
             </FormItem>
@@ -105,12 +106,12 @@ const SettingsForm = ({ info }: { info: Info }) => {
               <FormLabel>Website Description</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="A brief description of your website..."
+                  placeholder="Artisan coffee shop in downtown Austin offering organic blends and local treats"
                   {...field}
                 />
               </FormControl>
               <FormDescription>
-                This description will be displayed in the homepage.
+                A brief description of your website
               </FormDescription>
               <FormMessage />
             </FormItem>

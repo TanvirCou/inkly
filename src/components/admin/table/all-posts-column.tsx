@@ -85,8 +85,8 @@ export const allPostsColumns: ColumnDef<Post>[] = [
             <Tooltip>
               <TooltipTrigger asChild>
                 <p>
-                  {post.title.length > 30
-                    ? `${post.title.slice(0, 30)}...`
+                  {post.title.length > 25
+                    ? `${post.title.slice(0, 25)}...`
                     : post.title}
                 </p>
               </TooltipTrigger>
@@ -119,6 +119,14 @@ export const allPostsColumns: ColumnDef<Post>[] = [
           {post.user.firstName} {post.user.lastName}
         </p>
       );
+    },
+  },
+  {
+    accessorKey: 'category',
+    header: 'Category',
+    cell: ({ row }) => {
+      const post = row.original;
+      return <p className="first-letter:capitalize">{post.category}</p>;
     },
   },
   {

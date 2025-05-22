@@ -11,8 +11,6 @@ export async function getAllActivities() {
     },
   });
 
-  console.log(res);
-
   if (!res.ok) {
     throw new Error('Error in fetching data');
   }

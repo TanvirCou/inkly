@@ -63,14 +63,16 @@ const PostDetailPage = async ({
         </div>
 
         {/* Featured image */}
-        <div className="relative h-[300px] overflow-hidden rounded-xl md:h-[400px] lg:w-1/2">
-          <Image
-            src={post.img}
-            alt={post.title}
-            fill
-            className="object-cover"
-          />
-        </div>
+        {post.img && (
+          <div className="relative h-[300px] overflow-hidden rounded-xl md:h-[400px] lg:w-1/2">
+            <Image
+              src={post.img}
+              alt={post.title}
+              fill
+              className="object-cover"
+            />
+          </div>
+        )}
       </div>
 
       {/* Main Content and Author Section */}
@@ -105,14 +107,13 @@ const PostDetailPage = async ({
                   {post.user?.firstName} {post.user.lastName}
                 </h3>
                 <p className="text-sm text-gray-500 dark:text-gray-300">
-                  Senior Developer
+                  {post.user?.title}
                 </p>
               </div>
             </div>
 
             <p className="mb-6 text-sm text-gray-600 dark:text-gray-300">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque
-              iure exercitationem tempora atque inventore laudantium, expedita.
+              {post.user?.bio}
             </p>
 
             <div className="flex flex-col gap-4">

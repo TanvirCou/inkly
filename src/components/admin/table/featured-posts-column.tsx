@@ -122,6 +122,14 @@ export const featuredPostsColumns: ColumnDef<Post>[] = [
     },
   },
   {
+    accessorKey: 'category',
+    header: 'Category',
+    cell: ({ row }) => {
+      const post = row.original;
+      return <p className="first-letter:capitalize">{post.category}</p>;
+    },
+  },
+  {
     accessorKey: 'visit',
     header: 'Visit',
     cell: ({ row }) => {

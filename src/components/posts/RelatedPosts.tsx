@@ -27,14 +27,16 @@ const RelatedPosts = async ({
         {!!filteredPosts &&
           filteredPosts.map((post: Post) => (
             <Card key={post._id} className="overflow-hidden">
-              <div className="relative h-48">
-                <Image
-                  src={post.img}
-                  alt={post.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
+              {post.img && (
+                <div className="relative h-48">
+                  <Image
+                    src={post.img}
+                    alt={post.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              )}
               <CardHeader>
                 <Badge className="mb-2 w-fit bg-indigo-100 text-indigo-700 hover:bg-indigo-200 dark:bg-indigo-700 dark:text-indigo-100">
                   <p className="first-letter:uppercase">{post.category}</p>
