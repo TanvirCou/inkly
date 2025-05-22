@@ -126,33 +126,39 @@ const PostDetailPage = async ({
 
               {/* Social Media Links */}
               <div className="flex items-center justify-center gap-4 border-t border-gray-100 pt-4 dark:border-gray-800">
-                <a
-                  href={`/`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-colors duration-300 hover:bg-blue-100 hover:text-blue-500 dark:bg-gray-800 dark:text-gray-300 dark:hover:text-blue-400"
-                  aria-label="Twitter"
-                >
-                  <Twitter size={18} />
-                </a>
-                <a
-                  href={`/`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-colors duration-300 hover:bg-blue-100 hover:text-blue-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:text-blue-500"
-                  aria-label="Facebook"
-                >
-                  <Facebook size={18} />
-                </a>
-                <a
-                  href={`/`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-colors duration-300 hover:bg-pink-100 hover:text-pink-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:text-pink-400"
-                  aria-label="Instagram"
-                >
-                  <Instagram size={18} />
-                </a>
+                {post.user?.twitterLink && (
+                  <a
+                    href={post.user?.twitterLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-colors duration-300 hover:bg-blue-100 hover:text-blue-500 dark:bg-gray-800 dark:text-gray-300 dark:hover:text-blue-400"
+                    aria-label="Twitter"
+                  >
+                    <Twitter size={18} />
+                  </a>
+                )}
+                {post.user?.fbLink && (
+                  <a
+                    href={post.user?.fbLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-colors duration-300 hover:bg-blue-100 hover:text-blue-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:text-blue-500"
+                    aria-label="Facebook"
+                  >
+                    <Facebook size={18} />
+                  </a>
+                )}
+                {post.user?.instagramLink && (
+                  <a
+                    href={post.user?.instagramLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-colors duration-300 hover:bg-pink-100 hover:text-pink-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:text-pink-400"
+                    aria-label="Instagram"
+                  >
+                    <Instagram size={18} />
+                  </a>
+                )}
               </div>
             </div>
           </div>

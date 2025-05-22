@@ -2,11 +2,11 @@ import {
   Bookmark,
   ChevronUp,
   ClipboardList,
+  Contact,
   Home,
   ShieldHalf,
   SquareActivity,
   UserPen,
-  UserRoundCog,
 } from 'lucide-react';
 
 import {
@@ -42,10 +42,10 @@ const items = [
   {
     title: 'Information',
     url: '/user/information',
-    icon: UserRoundCog,
+    icon: Contact,
   },
   {
-    title: 'Customize Bio',
+    title: 'Customize Info',
     url: '/user/customize-bio',
     icon: UserPen,
   },

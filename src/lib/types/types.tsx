@@ -6,6 +6,9 @@ export type User = {
   img?: string;
   title?: string;
   bio?: string;
+  fbLink?: string;
+  twitterLink?: string;
+  instagramLink?: string;
 };
 
 export type Post = {

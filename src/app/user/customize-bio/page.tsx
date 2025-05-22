@@ -30,7 +30,13 @@ export default async function SettingsPage() {
           <CardDescription>Edit your title & bio</CardDescription>
         </CardHeader>
         <CardContent>
-          <BioForm title={user?.title} bio={user?.bio} />
+          <BioForm
+            title={user?.title}
+            bio={user?.bio}
+            fbLink={user?.fbLink}
+            twitterLink={user?.twitterLink}
+            instagramLink={user?.instagramLink}
+          />
         </CardContent>
       </Card>
     </div>

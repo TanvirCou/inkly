@@ -29,9 +29,24 @@ const formSchema = z.object({
     .string()
     .min(20, { message: 'Bio must be at least 10 characters.' })
     .max(210, { message: 'Bio must be less than 50 characters.' }),
+  fbLink: z.string(),
+  twitterLink: z.string(),
+  instagramLink: z.string(),
 });
 
-const BioForm = ({ title, bio }: { title: string; bio: string }) => {
+const BioForm = ({
+  title,
+  bio,
+  fbLink,
+  twitterLink,
+  instagramLink,
+}: {
+  title: string;
+  bio: string;
+  fbLink: string;
+  twitterLink: string;
+  instagramLink: string;
+}) => {
   const router = useRouter();
   const { getToken } = useAuth();
   const { toast } = useToast();
@@ -41,6 +56,9 @@ const BioForm = ({ title, bio }: { title: string; bio: string }) => {
     defaultValues: {
       title: title || '',
       bio: bio || '',
+      fbLink: fbLink || '',
+      twitterLink: twitterLink || '',
+      instagramLink: instagramLink || '',
     },
   });
 
@@ -82,7 +100,7 @@ const BioForm = ({ title, bio }: { title: string; bio: string }) => {
           name="title"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Title</FormLabel>
+              <FormLabel>Profile Title</FormLabel>
               <FormControl>
                 <Input placeholder="Senior Developer" {...field} />
               </FormControl>
@@ -98,7 +116,7 @@ const BioForm = ({ title, bio }: { title: string; bio: string }) => {
           name="bio"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Website Description</FormLabel>
+              <FormLabel> Profile Bio</FormLabel>
               <FormControl>
                 <Textarea
                   placeholder="I’m a frontend developer who loves clean design and good coffee."
@@ -106,6 +124,54 @@ const BioForm = ({ title, bio }: { title: string; bio: string }) => {
                 />
               </FormControl>
               <FormDescription>Tell us a bit about you</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="fbLink"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Facebook Link</FormLabel>
+              <FormControl>
+                <Input placeholder="facebook.com/username" {...field} />
+              </FormControl>
+              <FormDescription>
+                This facebook link will appear on your public profile
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="twitterLink"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Twitter Link</FormLabel>
+              <FormControl>
+                <Input placeholder="twitter.com/username" {...field} />
+              </FormControl>
+              <FormDescription>
+                This twitter link will appear on your public profile
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="instagramLink"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Instagram Link</FormLabel>
+              <FormControl>
+                <Input placeholder="instagram.com/username" {...field} />
+              </FormControl>
+              <FormDescription>
+                This instagram link will appear on your public profile
+              </FormDescription>
               <FormMessage />
             </FormItem>
           )}
