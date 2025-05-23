@@ -14,6 +14,21 @@ import RelatedPosts from '@/components/posts/RelatedPosts';
 import SavedPostButton from '@/components/posts/SavedPostButton';
 import { getSingleUser } from '@/lib/api/fetch-users';
 import { auth } from '@clerk/nextjs/server';
+import type { Metadata } from 'next';
+
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const post: Post = await getSinglePost(slug);
+
+  return {
+    title: `${post.title} | Inkly`,
+    description: post.desc,
+  };
+}
 
 const PostDetailPage = async ({
   params,

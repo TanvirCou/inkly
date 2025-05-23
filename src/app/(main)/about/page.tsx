@@ -5,6 +5,13 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'About Us | Inkly',
+  description:
+    'Inkly is a blog platform dedicated to empowering writers and readers. Find out who we are and what we stand for.',
+};
 
 const faqs = [
   {

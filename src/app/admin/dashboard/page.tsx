@@ -15,6 +15,14 @@ import { Post, Comment, ActivityType } from '@/lib/types/types';
 import { getAllActivities } from '@/lib/api/fetch-activities';
 import { formatDistanceToNow } from 'date-fns';
 import { getInquiries } from '@/lib/api/fetch-inquiries';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Admin Dashboard | Inkly',
+  description:
+    'Manage posts, users, and site settings from the Inkly admin dashboard.',
+};
+
 const page = async () => {
   const allUsers = await getAllUsers();
   const allComments = await getAllComments();

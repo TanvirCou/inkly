@@ -9,13 +9,20 @@ import {
 import { Mail, MessageSquare, User } from 'lucide-react';
 import { getInquiries } from '@/lib/api/fetch-inquiries';
 import { Contact } from '@/lib/types/types';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'User Inquiries | Inkly Admin',
+  description:
+    'View and manage all contact form submissions and user inquiries received on Inkly.',
+};
 
 export default async function ContactInquiriesPage() {
   const inquiries: Contact[] = await getInquiries();
   return (
     <div className="container mx-auto p-6">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold tracking-tight">Contact Inquiries</h1>
+        <h1 className="text-3xl font-bold tracking-tight">User Inquiries</h1>
         <p className="text-muted-foreground">
           View and manage contact form submissions
         </p>

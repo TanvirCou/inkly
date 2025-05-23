@@ -8,8 +8,15 @@ import {
 import BioForm from '@/components/user/customize-bio/BioForm';
 import { getSingleUser } from '@/lib/api/fetch-users';
 import { UserPen } from 'lucide-react';
+import { Metadata } from 'next';
 
-export default async function SettingsPage() {
+export const metadata: Metadata = {
+  title: 'Customize Profile | Inkly',
+  description:
+    'Personalize your Inkly profile by updating your information and preferences.',
+};
+
+export default async function CustomizeInfoPage() {
   const user = await getSingleUser();
 
   return (

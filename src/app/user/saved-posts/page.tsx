@@ -2,6 +2,12 @@ import { getSavedPosts } from '@/lib/api/fetch-posts';
 import React from 'react';
 import { SavedPostsTable } from '@/components/user/table/saved-post-table';
 import { savedPostsColumns } from '@/components/user/table/saved-posts-column';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Bookmarks | Inkly',
+  description: 'Your list of saved blog posts on Inkly.',
+};
 
 const page = async () => {
   const data = await getSavedPosts();

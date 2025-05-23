@@ -6,6 +6,12 @@ import Link from 'next/link';
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { getSingleUser } from '@/lib/api/fetch-users';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'My Posts | Inkly',
+  description: 'View and manage all the blog posts you’ve written on Inkly.',
+};
 
 const page = async () => {
   const user = await getSingleUser();

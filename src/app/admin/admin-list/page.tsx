@@ -3,6 +3,12 @@ import { adminColumns } from '@/components/admin/table/admin-column';
 import { AdminTable } from '@/components/admin/table/admin-table';
 import { getUsers } from '@/lib/api/fetch-users';
 import React from 'react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Admin List | Inkly Admin',
+  description: 'Manage all admins from the Inkly admin dashboard.',
+};
 
 const page = async () => {
   const data = await getUsers();

@@ -5,6 +5,12 @@ import { getAllPosts } from '@/lib/api/fetch-posts';
 import { PlusCircle } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'All Posts | Inkly Admin',
+  description: 'Manage all blog posts from the Inkly admin dashboard.',
+};
 
 const page = async () => {
   const data = await getAllPosts();

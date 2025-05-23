@@ -10,6 +10,13 @@ import {
 } from '@/components/ui/card';
 import { getSingleUserActivities } from '@/lib/api/fetch-activities';
 import { ActivityType } from '@/lib/types/types';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Activity Log | Inkly',
+  description:
+    'Review your recent activity on Inkly including posts, comments, and interactions.',
+};
 
 async function ActivityPage() {
   const activities = await getSingleUserActivities();

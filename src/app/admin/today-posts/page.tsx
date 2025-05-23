@@ -6,6 +6,12 @@ import { Post } from '@/lib/types/types';
 import { PlusCircle } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Today's Posts | Inkly Admin",
+  description: 'Review and manage all blog posts published today on Inkly.',
+};
 
 const page = async () => {
   const data = await getAllPosts();

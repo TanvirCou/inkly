@@ -5,6 +5,13 @@ import { getFeaturedPosts } from '@/lib/api/fetch-posts';
 import { PlusCircle } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Featured Posts | Inkly Admin',
+  description:
+    'Manage and curate featured blog posts showcased on the Inkly homepage.',
+};
 
 const page = async () => {
   const data = await getFeaturedPosts();

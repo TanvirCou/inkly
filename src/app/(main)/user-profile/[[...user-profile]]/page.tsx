@@ -1,19 +1,14 @@
-'use client';
-import { UserProfile } from '@clerk/nextjs';
-import { useTheme } from 'next-themes';
-import { dark } from '@clerk/themes';
+import Profile from '@/components/profile/Profile';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'My Profile | Inkly',
+  description:
+    'Customize your Inkly presence. Edit your profile and showcase your latest blog posts.',
+};
 
 const UserProfilePage = () => {
-  const { resolvedTheme } = useTheme();
-  return (
-    <div className="flex w-full justify-center py-6">
-      <UserProfile
-        appearance={{
-          baseTheme: resolvedTheme === 'dark' ? dark : undefined,
-        }}
-      />
-    </div>
-  );
+  return <Profile />;
 };
 
 export default UserProfilePage;

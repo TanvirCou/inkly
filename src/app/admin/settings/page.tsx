@@ -9,6 +9,12 @@ import {
 import { getWebInfo } from '@/lib/api/fetch-info';
 import { Info } from '@/lib/types/types';
 import { Settings } from 'lucide-react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Settings | Inkly Admin',
+  description: 'Manage your website settings from the Inkly admin dashboard.',
+};
 
 export default async function SettingsPage() {
   const info: Info = await getWebInfo();

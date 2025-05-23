@@ -73,7 +73,7 @@ const items = [
     icon: Users,
   },
   {
-    title: 'Contact Inquiries',
+    title: 'Inquiries',
     url: '/admin/contact-inquiries',
     icon: Mailbox,
   },

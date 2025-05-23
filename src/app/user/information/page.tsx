@@ -10,6 +10,13 @@ import {
 } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { getSingleUser } from '@/lib/api/fetch-users';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Profile Information | Inkly',
+  description:
+    'View your personal profile details and account information on Inkly.',
+};
 
 async function InformationPage() {
   const user = await getSingleUser();

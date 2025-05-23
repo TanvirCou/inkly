@@ -1,6 +1,13 @@
 import ContactForm from '@/components/contact/ContactForm';
 import { getSingleUser } from '@/lib/api/fetch-users';
 import { Mail, Phone, MapPin, Github, Twitter, Linkedin } from 'lucide-react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Contact Us | Inkly',
+  description:
+    'Contact the Inkly team for support, feedback, or collaborations.',
+};
 
 const ContactPage = async () => {
   const user = await getSingleUser();

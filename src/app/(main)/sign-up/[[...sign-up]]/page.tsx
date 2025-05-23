@@ -1,18 +1,11 @@
-'use client';
-import { SignUp } from '@clerk/nextjs';
-import { useTheme } from 'next-themes';
-import { dark } from '@clerk/themes';
+import Register from '@/components/auth/Register';
+import { Metadata } from 'next';
+export const metadata: Metadata = {
+  title: 'Sign Up | Inkly',
+  description:
+    'Join Inkly to share your voice, write blog posts, and connect with a creative community of writers and readers.',
+};
 
 export default function Page() {
-  const { resolvedTheme } = useTheme();
-  return (
-    <div className="flex w-full items-center justify-center p-8">
-      <SignUp
-        afterSignUpUrl="/"
-        appearance={{
-          baseTheme: resolvedTheme === 'dark' ? dark : undefined,
-        }}
-      />
-    </div>
-  );
+  return <Register />;
 }

@@ -4,6 +4,12 @@ import { CategoryTable } from '@/components/admin/table/category-table';
 import { getAllCategories } from '@/lib/api/fetch-categories';
 import { Category } from '@/lib/types/types';
 import React from 'react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Categories | Inkly Admin',
+  description: 'Manage all categories from the Inkly admin dashboard.',
+};
 
 const page = async () => {
   const data: Category[] = await getAllCategories();
