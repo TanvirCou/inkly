@@ -5,6 +5,7 @@ import {
   ClipboardList,
   Home,
   LayoutDashboard,
+  Mailbox,
   Settings,
   ShieldHalf,
   Star,
@@ -70,6 +71,11 @@ const items = [
     title: 'Admin List',
     url: '/admin/admin-list',
     icon: Users,
+  },
+  {
+    title: 'Contact Inquiries',
+    url: '/admin/contact-inquiries',
+    icon: Mailbox,
   },
   {
     title: 'Settings',

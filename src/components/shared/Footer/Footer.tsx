@@ -3,9 +3,13 @@ import Link from 'next/link';
 import { Facebook, Instagram, Twitter, Github, Mail } from 'lucide-react';
 import FooterLink from './FooterLink';
 import SocialLink from './SocialLink';
-
-const Footer = () => {
+import { getAllCategories } from '@/lib/api/fetch-categories';
+import { Category } from '@/lib/types/types';
+const Footer = async () => {
   const currentYear = new Date().getFullYear();
+  const categories: Category[] = await getAllCategories();
+
+  const firstFourCategories = categories.slice(0, 4);
 
   return (
     <footer className="rounded-md border-t border-gray-200 bg-white px-4 dark:border-gray-800 dark:bg-primary-foreground md:px-8 lg:px-16">
@@ -60,10 +64,14 @@ const Footer = () => {
               Categories
             </h3>
             <ul className="space-y-2">
-              <FooterLink href="/posts?cat=web-design">Web Design</FooterLink>
-              <FooterLink href="/posts?cat=development">Development</FooterLink>
-              <FooterLink href="/posts?cat=databases">Databases</FooterLink>
-              <FooterLink href="/posts?cat=marketing">Marketing</FooterLink>
+              {firstFourCategories.map((category) => (
+                <FooterLink
+                  key={category._id}
+                  href={`/posts?cat=${category.value}`}
+                >
+                  {category.label}
+                </FooterLink>
+              ))}
             </ul>
           </div>
 

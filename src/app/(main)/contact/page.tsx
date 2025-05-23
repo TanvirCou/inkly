@@ -1,16 +1,9 @@
-'use client';
-
-import React from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+import ContactForm from '@/components/contact/ContactForm';
+import { getSingleUser } from '@/lib/api/fetch-users';
 import { Mail, Phone, MapPin, Github, Twitter, Linkedin } from 'lucide-react';
 
-const ContactPage = () => {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission here
-  };
+const ContactPage = async () => {
+  const user = await getSingleUser();
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12">
@@ -86,85 +79,12 @@ const ContactPage = () => {
         </div>
 
         {/* Contact Form */}
-        <div className="rounded-lg bg-white p-6 shadow-md dark:bg-primary-foreground">
-          <h2 className="mb-6 text-2xl font-semibold">Send us a Message</h2>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-              <div>
-                <label
-                  htmlFor="firstName"
-                  className="mb-2 block text-sm font-medium"
-                >
-                  First Name
-                </label>
-                <Input
-                  id="firstName"
-                  type="text"
-                  placeholder="John"
-                  className="w-full"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="lastName"
-                  className="mb-2 block text-sm font-medium"
-                >
-                  Last Name
-                </label>
-                <Input
-                  id="lastName"
-                  type="text"
-                  placeholder="Doe"
-                  className="w-full"
-                />
-              </div>
-            </div>
-            <div>
-              <label htmlFor="email" className="mb-2 block text-sm font-medium">
-                Email
-              </label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="john@example.com"
-                className="w-full"
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="subject"
-                className="mb-2 block text-sm font-medium"
-              >
-                Subject
-              </label>
-              <Input
-                id="subject"
-                type="text"
-                placeholder="How can we help?"
-                className="w-full"
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="message"
-                className="mb-2 block text-sm font-medium"
-              >
-                Message
-              </label>
-              <Textarea
-                id="message"
-                placeholder="Your message here..."
-                className="min-h-[150px] w-full"
-              />
-            </div>
-            <Button
-              type="submit"
-              className="w-full bg-indigo-600 text-white hover:bg-indigo-700"
-            >
-              Send Message
-            </Button>
-          </form>
-        </div>
+        <ContactForm
+          firstName={user?.firstName}
+          lastName={user?.lastName}
+          email={user?.email}
+          id={user?._id}
+        />
       </div>
     </div>
   );
