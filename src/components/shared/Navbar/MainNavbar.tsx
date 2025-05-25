@@ -22,7 +22,7 @@ const MainNavbar = async () => {
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center">
-          <span className="font-[Poppins] text-2xl font-bold text-indigo-600">
+          <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 bg-clip-text font-[Poppins] text-2xl font-bold text-transparent">
             Inkly
           </span>
         </Link>
