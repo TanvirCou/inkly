@@ -60,94 +60,86 @@ const AllPost = ({ data }: AllPostProps) => {
   };
 
   return (
-    <div className="flex flex-col gap-2 px-4 py-2 sm:px-6 md:px-8 lg:px-16">
-      <p className="text-2xl font-bold text-gray-800 dark:text-white">Blogs</p>
-      <button
-        className="w-max cursor-pointer rounded-md bg-indigo-600 px-4 py-1.5 text-sm text-white md:hidden"
-        onClick={handleClick}
-      >
-        {open ? 'Close' : 'Filter or Search'}
-      </button>
-      <div className="flex flex-col-reverse gap-4 md:flex-row">
-        <div className="mt-2 w-full text-justify md:w-[65%] lg:w-[70%] xl:w-[75%]">
+    <div className="flex min-h-screen flex-col gap-4 px-4 py-6 sm:px-6 md:px-8 lg:px-16">
+      <div className="flex items-center justify-between">
+        <h1 className="bg-gradient-to-r from-gray-900 to-indigo-700 bg-clip-text text-2xl font-bold text-transparent dark:from-white dark:to-indigo-400">
+          Explore Articles
+        </h1>
+        <button
+          className="rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-4 py-1.5 text-sm text-white shadow-sm transition-all duration-300 hover:shadow-md md:hidden"
+          onClick={handleClick}
+        >
+          {open ? 'Close' : 'Filter & Search'}
+        </button>
+      </div>
+
+      <div className="flex flex-col-reverse gap-6 md:flex-row">
+        {/* Main Content */}
+        <div className="w-full md:w-[65%] lg:w-[70%] xl:w-[75%]">
           {loading ? (
-            <p>Loading...</p>
+            <div className="flex h-64 items-center justify-center">
+              <div className="h-8 w-8 animate-spin rounded-full border-4 border-indigo-600 border-t-transparent"></div>
+            </div>
           ) : posts && posts.length > 0 ? (
-            posts.map((post: Post) => <PostItem key={post._id} post={post} />)
+            <div className="grid gap-6">
+              {posts.map((post: Post) => (
+                <PostItem key={post._id} post={post} />
+              ))}
+            </div>
           ) : (
-            <div className="flex h-full w-full items-center justify-center">
-              <p className="text-lg font-medium text-gray-600 dark:text-gray-300">
+            <div className="flex h-64 w-full items-center justify-center rounded-xl border border-indigo-100/50 bg-gradient-to-br from-white via-indigo-50/50 to-purple-50/50 dark:border-gray-800/50 dark:from-gray-900/80 dark:via-indigo-950/50 dark:to-purple-950/50">
+              <p className="bg-gradient-to-r from-gray-600 to-indigo-600 bg-clip-text text-lg font-medium text-transparent dark:from-gray-300 dark:to-indigo-400">
                 No posts found
               </p>
             </div>
           )}
         </div>
 
+        {/* Sidebar */}
         <div
-          className={`${open ? 'block' : 'hidden'} top-16 h-max w-full px-0 md:sticky md:flex md:w-[35%] md:flex-col md:gap-4 md:px-4 lg:w-[30%] xl:w-[25%]`}
+          className={`${
+            open ? 'block' : 'hidden'
+          } md:block md:w-[35%] lg:w-[30%] xl:w-[25%]`}
         >
-          <div className="flex w-full flex-col rounded-md bg-indigo-50 p-2 dark:bg-primary-foreground">
-            <p className="font-semibold text-gray-500 dark:text-gray-400">
-              Search
-            </p>
-            <Searchbar type="posts" />
-          </div>
+          <div className="sticky top-4 flex flex-col gap-4">
+            <div className="relative overflow-hidden rounded-xl border border-indigo-100/50 bg-gradient-to-br from-white via-indigo-50/50 to-purple-50/50 px-4 py-2 shadow-sm backdrop-blur-sm transition-all duration-300 hover:shadow-md dark:border-gray-800/50 dark:from-gray-900/80 dark:via-indigo-950/50 dark:to-purple-950/50">
+              <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 to-purple-500/5"></div>
+              <p className="relative mb-2 bg-gradient-to-r from-gray-800 to-indigo-600 bg-clip-text font-semibold text-transparent dark:from-white dark:to-indigo-400">
+                Search Posts
+              </p>
+              <Searchbar type="posts" />
+            </div>
 
-          <FilterSearch onFilterChange={handleFilter} />
+            <FilterSearch onFilterChange={handleFilter} />
 
-          <div className="flex w-full flex-col gap-1 rounded-md bg-indigo-50 px-4 py-2 dark:bg-primary-foreground">
-            <p className="font-semibold text-gray-500 dark:text-gray-400">
-              Catagories
-            </p>
-            <div className="flex flex-col gap-1 text-sm underline">
-              <span
-                className="cursor-pointer"
-                onClick={() => handleCategory('')}
-              >
-                All
-              </span>
-              <span
-                className="cursor-pointer"
-                onClick={() => handleCategory('web-design')}
-              >
-                Web Design
-              </span>
-              <span
-                className="cursor-pointer"
-                onClick={() => handleCategory('development')}
-              >
-                Development
-              </span>
-              <span
-                className="cursor-pointer"
-                onClick={() => handleCategory('databases')}
-              >
-                Databases
-              </span>
-              <span
-                className="cursor-pointer"
-                onClick={() => handleCategory('search-engines')}
-              >
-                Search Engines
-              </span>
-              <span
-                className="cursor-pointer"
-                onClick={() => handleCategory('marketing')}
-              >
-                Marketing
-              </span>
-              <span
-                className="cursor-pointer"
-                onClick={() => handleCategory('gaming')}
-              >
-                Gaming
-              </span>
-              <span
-                className="cursor-pointer"
-                onClick={() => handleCategory('football')}
-              >
-                Football
-              </span>
+            <div className="scrollbar-thin scrollbar-track-transparent scrollbar-thumb-indigo-200 hover:scrollbar-thumb-indigo-300 dark:scrollbar-thumb-indigo-800 dark:hover:scrollbar-thumb-indigo-700 relative max-h-[calc(100vh-13rem)] overflow-y-auto rounded-xl border border-indigo-100/50 bg-gradient-to-br from-white via-indigo-50/50 to-purple-50/50 px-4 py-2 shadow-sm backdrop-blur-sm transition-all duration-300 hover:shadow-md dark:border-gray-800/50 dark:from-gray-900/80 dark:via-indigo-950/50 dark:to-purple-950/50">
+              <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 to-purple-500/5"></div>
+              <p className="sticky top-0 z-10 mb-2 bg-gradient-to-r from-gray-800 to-indigo-600 bg-clip-text font-semibold text-transparent dark:from-white dark:to-indigo-400">
+                Categories
+              </p>
+              <div className="relative flex flex-col gap-2 pb-2 text-sm">
+                {[
+                  { label: 'All', value: '' },
+                  { label: 'Web Design', value: 'web-design' },
+                  { label: 'Development', value: 'development' },
+                  { label: 'Databases', value: 'databases' },
+                  { label: 'Search Engines', value: 'search-engines' },
+                  { label: 'Marketing', value: 'marketing' },
+                  { label: 'Gaming', value: 'gaming' },
+                  { label: 'Football', value: 'football' },
+                ].map((category) => (
+                  <button
+                    key={category.value}
+                    onClick={() => handleCategory(category.value)}
+                    className="group text-left text-gray-600 transition-colors duration-300 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400"
+                  >
+                    <span className="relative inline-flex items-center">
+                      <span className="relative">{category.label}</span>
+                      <span className="absolute bottom-0 left-0 h-px w-0 bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300 group-hover:w-full"></span>
+                    </span>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>

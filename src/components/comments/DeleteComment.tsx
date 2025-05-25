@@ -55,24 +55,28 @@ const DeleteComment = ({ commentId }: { commentId: string }) => {
         <Button
           variant="ghost"
           size="icon"
-          className="text-gray-500 hover:text-red-500"
+          className="rounded-full p-2 text-gray-400 transition-all hover:bg-red-100 hover:text-red-500 dark:hover:bg-red-950/30"
         >
           <Trash2 className="h-4 w-4" />
         </Button>
       </AlertDialogTrigger>
-      <AlertDialogContent>
+      <AlertDialogContent className="rounded-xl border border-indigo-100/50 bg-gradient-to-br from-white via-indigo-50/50 to-purple-50/50 p-6 shadow-xl dark:border-indigo-800/50 dark:from-gray-900/80 dark:via-indigo-950/50 dark:to-purple-950/50">
         <AlertDialogHeader>
-          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-          <AlertDialogDescription>
+          <AlertDialogTitle className="text-xl font-semibold text-gray-900 dark:text-white">
+            Delete Comment
+          </AlertDialogTitle>
+          <AlertDialogDescription className="text-gray-600 dark:text-gray-300">
             This action cannot be undone. This will permanently delete your
             comment.
           </AlertDialogDescription>
         </AlertDialogHeader>
-        <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
+        <AlertDialogFooter className="mt-6">
+          <AlertDialogCancel className="rounded-lg border-0 bg-gray-100 font-medium text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
+            Cancel
+          </AlertDialogCancel>
           <AlertDialogAction
             onClick={handleDelete}
-            className="bg-red-600 text-white hover:bg-red-700"
+            className="rounded-lg bg-red-500 font-medium text-white hover:bg-red-600 dark:bg-red-600 dark:hover:bg-red-700"
           >
             Delete
           </AlertDialogAction>

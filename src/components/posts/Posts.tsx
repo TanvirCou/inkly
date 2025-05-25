@@ -60,17 +60,23 @@ const Posts = async () => {
   const recentPosts = posts.slice(0, 5);
 
   return (
-    <section className="w-full py-10">
-      <div className="container mx-auto">
-        <div className="mb-8 flex items-center justify-between">
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
+    <section className="w-full py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-8 flex items-center gap-4">
+          <h2 className="relative bg-gradient-to-r from-gray-900 via-indigo-800 to-indigo-600 bg-clip-text text-2xl font-bold text-transparent dark:from-white dark:via-indigo-300 dark:to-indigo-500">
             Recent Posts
+            <span className="absolute -bottom-2 left-0 h-1 w-20 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600"></span>
           </h2>
+          <div className="h-px flex-1 bg-gradient-to-r from-indigo-100 via-purple-50 to-transparent dark:from-indigo-800/50 dark:via-purple-900/30 dark:to-transparent"></div>
           <Link
             href="/posts"
-            className="text-sm font-medium text-indigo-600 transition-colors hover:text-indigo-800"
+            className="group relative inline-flex items-center gap-1 text-sm font-medium text-gray-700 transition-colors dark:text-gray-300"
           >
-            View all posts →
+            View all posts
+            <span className="relative transition-transform duration-200 group-hover:translate-x-1">
+              →
+            </span>
+            <span className="absolute bottom-0 left-0 h-px w-0 bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300 group-hover:w-full"></span>
           </Link>
         </div>
 
@@ -80,8 +86,8 @@ const Posts = async () => {
               <PostItem key={post._id} post={post} />
             ))
           ) : (
-            <div className="flex h-[200px] w-full items-center justify-center">
-              <p className="text-lg font-medium text-gray-600 dark:text-gray-300">
+            <div className="flex h-64 w-full items-center justify-center rounded-xl border border-indigo-100/50 bg-gradient-to-br from-white via-indigo-50/50 to-purple-50/50 dark:border-gray-800/50 dark:from-gray-900/80 dark:via-indigo-950/50 dark:to-purple-950/50">
+              <p className="bg-gradient-to-r from-gray-600 to-indigo-600 bg-clip-text text-lg font-medium text-transparent dark:from-gray-300 dark:to-indigo-400">
                 No posts found
               </p>
             </div>

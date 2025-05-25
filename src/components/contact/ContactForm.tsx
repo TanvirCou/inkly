@@ -102,20 +102,32 @@ const ContactForm = ({
   }
 
   return (
-    <div className="rounded-lg bg-white p-6 shadow-md dark:bg-primary-foreground">
-      <h2 className="mb-6 text-2xl font-semibold">Send us a Message</h2>
+    <div className="group relative overflow-hidden rounded-xl border border-indigo-100/50 bg-gradient-to-br from-white via-indigo-50/50 to-purple-50/50 p-8 shadow-md backdrop-blur-sm transition-all duration-300 hover:shadow-xl dark:border-gray-800/50 dark:from-gray-900/80 dark:via-indigo-950/50 dark:to-purple-950/50">
+      <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 to-purple-500/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+      <h2 className="relative mb-8 bg-gradient-to-r from-indigo-700 to-purple-700 bg-clip-text text-2xl font-bold text-transparent dark:from-indigo-300 dark:to-purple-400">
+        Send us a Message
+      </h2>
 
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="relative space-y-6"
+        >
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <FormField
               control={form.control}
               name="firstName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>First Name</FormLabel>
+                  <FormLabel className="text-gray-700 dark:text-gray-200">
+                    First Name
+                  </FormLabel>
                   <FormControl>
-                    <Input placeholder="John" {...field} className="w-full" />
+                    <Input
+                      placeholder="John"
+                      {...field}
+                      className="border-indigo-100 bg-white/50 backdrop-blur-sm transition-all focus:border-indigo-300 focus:ring-2 focus:ring-indigo-100 dark:border-gray-800 dark:bg-gray-900/50 dark:focus:border-indigo-500/50 dark:focus:ring-indigo-500/20"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -126,9 +138,15 @@ const ContactForm = ({
               name="lastName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Last Name</FormLabel>
+                  <FormLabel className="text-gray-700 dark:text-gray-200">
+                    Last Name
+                  </FormLabel>
                   <FormControl>
-                    <Input placeholder="Doe" {...field} className="w-full" />
+                    <Input
+                      placeholder="Doe"
+                      {...field}
+                      className="border-indigo-100 bg-white/50 backdrop-blur-sm transition-all focus:border-indigo-300 focus:ring-2 focus:ring-indigo-100 dark:border-gray-800 dark:bg-gray-900/50 dark:focus:border-indigo-500/50 dark:focus:ring-indigo-500/20"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -141,12 +159,14 @@ const ContactForm = ({
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel className="text-gray-700 dark:text-gray-200">
+                  Email
+                </FormLabel>
                 <FormControl>
                   <Input
                     placeholder="john@example.com"
                     {...field}
-                    className="w-full"
+                    className="border-indigo-100 bg-white/50 backdrop-blur-sm transition-all focus:border-indigo-300 focus:ring-2 focus:ring-indigo-100 dark:border-gray-800 dark:bg-gray-900/50 dark:focus:border-indigo-500/50 dark:focus:ring-indigo-500/20"
                   />
                 </FormControl>
                 <FormMessage />
@@ -159,12 +179,14 @@ const ContactForm = ({
             name="subject"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Subject</FormLabel>
+                <FormLabel className="text-gray-700 dark:text-gray-200">
+                  Subject
+                </FormLabel>
                 <FormControl>
                   <Input
                     placeholder="How can we help?"
                     {...field}
-                    className="w-full"
+                    className="border-indigo-100 bg-white/50 backdrop-blur-sm transition-all focus:border-indigo-300 focus:ring-2 focus:ring-indigo-100 dark:border-gray-800 dark:bg-gray-900/50 dark:focus:border-indigo-500/50 dark:focus:ring-indigo-500/20"
                   />
                 </FormControl>
                 <FormMessage />
@@ -177,12 +199,14 @@ const ContactForm = ({
             name="message"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Message</FormLabel>
+                <FormLabel className="text-gray-700 dark:text-gray-200">
+                  Message
+                </FormLabel>
                 <FormControl>
                   <Textarea
                     placeholder="Your message here..."
                     {...field}
-                    className="min-h-[150px] w-full"
+                    className="min-h-[150px] border-indigo-100 bg-white/50 backdrop-blur-sm transition-all focus:border-indigo-300 focus:ring-2 focus:ring-indigo-100 dark:border-gray-800 dark:bg-gray-900/50 dark:focus:border-indigo-500/50 dark:focus:ring-indigo-500/20"
                   />
                 </FormControl>
                 <FormMessage />
@@ -192,7 +216,7 @@ const ContactForm = ({
 
           <Button
             type="submit"
-            className="w-full bg-indigo-600 text-white hover:bg-indigo-700"
+            className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white transition-all duration-300 hover:from-indigo-700 hover:to-purple-700 hover:shadow-lg dark:from-indigo-500 dark:to-purple-500 dark:hover:from-indigo-600 dark:hover:to-purple-600"
           >
             Send Message
           </Button>

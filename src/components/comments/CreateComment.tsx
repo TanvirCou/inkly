@@ -73,10 +73,16 @@ const CreateComment = ({ postId }: { postId: string }) => {
 
   return (
     <>
-      <h3 className="mb-6 text-2xl font-semibold">Comments</h3>
+      <div className="mb-12 flex items-center gap-4">
+        <h2 className="relative bg-gradient-to-r from-gray-900 via-indigo-800 to-indigo-600 bg-clip-text text-2xl font-bold text-transparent dark:from-white dark:via-indigo-300 dark:to-indigo-500">
+          Comments
+          <span className="absolute -bottom-2 left-0 h-1 w-20 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600"></span>
+        </h2>
+        <div className="h-px flex-1 bg-gradient-to-r from-indigo-100 via-purple-50 to-transparent dark:from-indigo-800/50 dark:via-purple-900/30 dark:to-transparent"></div>
+      </div>
 
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="mb-8">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="mb-12">
           <FormField
             control={form.control}
             name="desc"
@@ -84,20 +90,23 @@ const CreateComment = ({ postId }: { postId: string }) => {
               <FormItem>
                 <FormControl>
                   <Textarea
-                    placeholder="Write your comment here..."
-                    className="mb-2 min-h-[100px] bg-indigo-50 dark:bg-primary-foreground"
+                    placeholder="Share your thoughts..."
+                    className="mb-3 min-h-[120px] resize-none rounded-xl border border-indigo-100/50 bg-gradient-to-br from-white via-indigo-50/30 to-purple-50/30 p-4 text-base shadow-sm backdrop-blur-sm transition-all placeholder:text-gray-400 focus:border-indigo-300 focus:bg-white focus:shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500/20 dark:border-indigo-800/50 dark:from-gray-900/80 dark:via-indigo-950/30 dark:to-purple-950/30 dark:placeholder:text-gray-500 dark:focus:border-indigo-700 dark:focus:bg-gray-900"
                     {...field}
                   />
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="text-sm font-medium text-red-500" />
               </FormItem>
             )}
           />
           <Button
             type="submit"
-            className="mt-2 bg-indigo-600 text-white hover:bg-indigo-700"
+            className="group relative overflow-hidden rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-6 py-2.5 text-sm font-medium text-white shadow-lg transition-all hover:from-indigo-500 hover:to-purple-500"
           >
-            Send
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="h-full w-full bg-gradient-to-r from-indigo-500/5 to-purple-500/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+            </div>
+            <span className="relative">Post Comment</span>
           </Button>
         </form>
       </Form>
