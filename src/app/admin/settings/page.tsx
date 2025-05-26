@@ -20,26 +20,41 @@ export default async function SettingsPage() {
   const info: Info = await getWebInfo();
 
   return (
-    <div className="container mx-auto p-4">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold">Settings</h1>
-        <p className="text-muted-foreground">Manage your website settings</p>
+    <div className="min-h-screen space-y-8 p-8">
+      <div className="space-y-2">
+        <h1 className="bg-gradient-to-r from-gray-900 via-indigo-800 to-indigo-600 bg-clip-text text-3xl font-bold tracking-tight text-transparent dark:from-white dark:via-indigo-300 dark:to-indigo-500">
+          Website Settings
+        </h1>
+        <p className="text-base text-gray-600 dark:text-gray-400">
+          Configure and customize your website&apos;s appearance and
+          functionality
+        </p>
       </div>
 
-      <Card>
-        <CardHeader>
-          <div className="flex items-center gap-2">
-            <Settings className="h-6 w-6" />
-            <CardTitle>Website Configuration</CardTitle>
-          </div>
-          <CardDescription>
-            Configure your website&apos;s basic information
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <SettingsForm info={info} />
-        </CardContent>
-      </Card>
+      <div className="mx-auto max-w-4xl">
+        <Card className="overflow-hidden backdrop-blur-sm">
+          <CardHeader className="border-b bg-gray-50/80 dark:bg-gray-900/80">
+            <div className="flex items-center gap-4">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 p-2 shadow-lg">
+                <Settings className="h-5 w-5 text-white" />
+              </div>
+              <div>
+                <CardTitle className="text-xl font-semibold text-gray-900 dark:text-white">
+                  General Configuration
+                </CardTitle>
+                <CardDescription className="mt-1 text-gray-600 dark:text-gray-400">
+                  Manage your website&apos;s core settings and information
+                </CardDescription>
+              </div>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <div className="mt-6 space-y-6">
+              <SettingsForm info={info} />
+            </div>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 }

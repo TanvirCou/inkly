@@ -98,7 +98,9 @@ async function AppSidebar() {
                 className="font-[Poppins] text-xl font-semibold text-indigo-600"
               >
                 <ShieldHalf size={20} />
-                Inkly
+                <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 bg-clip-text font-[Poppins] text-xl font-bold text-transparent">
+                  Inkly
+                </span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>

@@ -86,45 +86,55 @@ const CreateCategory = () => {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <Button className="bg-indigo-600 text-white hover:bg-indigo-700">
-          <PlusCircle className="mr-1" />
-          Create Category
+        <Button className="group relative overflow-hidden bg-gradient-to-r from-indigo-600 to-indigo-700 text-white transition-all duration-300 hover:from-indigo-700 hover:to-indigo-800 hover:shadow-lg hover:shadow-indigo-500/25">
+          <div className="relative flex items-center">
+            <PlusCircle className="mr-2 h-4 w-4 transition-transform duration-200 group-hover:scale-110" />
+            <span>Create Category</span>
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 opacity-0 transition-opacity group-hover:opacity-100"></div>
         </Button>
       </SheetTrigger>
-      <SheetContent>
-        <SheetHeader>
-          <SheetTitle>Create Category</SheetTitle>
+      <SheetContent className="overflow-y-auto">
+        <SheetHeader className="space-y-4">
+          <SheetTitle className="bg-gradient-to-r from-gray-900 via-indigo-800 to-indigo-600 bg-clip-text text-2xl font-bold tracking-tight text-transparent dark:from-white dark:via-indigo-300 dark:to-indigo-500">
+            Create Category
+          </SheetTitle>
           <SheetDescription asChild>
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
-                className="flex h-[88vh] flex-col justify-between"
+                className="flex flex-col space-y-6"
               >
                 <FormField
                   control={form.control}
                   name="label"
                   render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Category title</FormLabel>
+                    <FormItem className="space-y-2">
+                      <FormLabel className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                        Category Title
+                      </FormLabel>
                       <FormControl>
                         <Input
                           placeholder="Marketing"
                           {...field}
-                          className="shadow-sm focus:border-indigo-500 focus:outline-indigo-500 focus:ring-indigo-500 focus:ring-offset-0 dark:bg-primary-foreground"
+                          className="rounded-lg border-gray-200 bg-white px-4 py-2 shadow-sm transition-colors focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 dark:border-gray-800 dark:bg-gray-950 dark:focus:border-indigo-400 dark:focus:ring-indigo-400/20"
                         />
                       </FormControl>
-                      <FormDescription>
-                        You need to enter an category title
+                      <FormDescription className="text-xs text-gray-500 dark:text-gray-400">
+                        Enter a unique category title (2-20 characters)
                       </FormDescription>
-                      <FormMessage />
+                      <FormMessage className="text-sm font-medium text-red-500 dark:text-red-400" />
                     </FormItem>
                   )}
                 />
                 <Button
                   type="submit"
-                  className="w-full bg-indigo-600 text-white hover:bg-indigo-700"
+                  className="group relative mt-6 overflow-hidden rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-700 px-4 py-2 text-white shadow-sm transition-all duration-300 hover:from-indigo-700 hover:to-indigo-800 hover:shadow-lg hover:shadow-indigo-500/25 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 dark:hover:shadow-indigo-500/10"
                 >
-                  Submit
+                  <div className="relative flex items-center justify-center">
+                    <span className="text-sm font-medium">Create Category</span>
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 opacity-0 transition-opacity group-hover:opacity-100"></div>
                 </Button>
               </form>
             </Form>

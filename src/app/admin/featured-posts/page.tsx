@@ -19,16 +19,21 @@ const page = async () => {
   return (
     <div className="p-4">
       <div className="flex items-center justify-between">
-        <div>
-          <p className="text-xl font-semibold">Featured Posts</p>
+        <div className="space-y-1">
+          <h1 className="bg-gradient-to-r from-gray-900 via-indigo-800 to-indigo-600 bg-clip-text text-2xl font-bold tracking-tight text-transparent dark:from-white dark:via-indigo-300 dark:to-indigo-500">
+            Featured Posts
+          </h1>
           <p className="text-sm text-gray-600 dark:text-gray-400">
             Manage all featured posts from here.
           </p>
         </div>
         <Link href="/create-post">
-          <Button className="bg-indigo-600 text-white hover:bg-indigo-700">
-            <PlusCircle className="mr-1" />
-            Create Post
+          <Button className="group relative overflow-hidden bg-gradient-to-r from-indigo-600 to-indigo-700 text-white transition-all duration-300 hover:from-indigo-700 hover:to-indigo-800 hover:shadow-lg hover:shadow-indigo-500/25">
+            <div className="relative flex items-center">
+              <PlusCircle className="mr-2 h-4 w-4 transition-transform duration-200 group-hover:scale-110" />
+              <span>Create Post</span>
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 opacity-0 transition-opacity group-hover:opacity-100"></div>
           </Button>
         </Link>
       </div>

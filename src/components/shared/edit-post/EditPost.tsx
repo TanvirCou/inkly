@@ -125,14 +125,15 @@ const EditPost = ({ post, categories }: EditPostProps) => {
   }
 
   return (
-    <div className="flex w-full flex-col items-center gap-2 px-4 py-4 sm:px-6 md:px-8 lg:px-16">
-      <p className="text-2xl font-bold text-gray-800 dark:text-gray-300">
-        Edit Blogs
-      </p>
+    <div className="flex w-full flex-col items-center gap-6 px-4 py-8 sm:px-6 md:px-8 lg:px-16">
+      <h1 className="relative bg-gradient-to-r from-gray-900 via-indigo-800 to-indigo-600 bg-clip-text text-3xl font-bold tracking-tight text-transparent dark:from-white dark:via-indigo-300 dark:to-indigo-500">
+        Edit Story
+        <span className="absolute -bottom-2 left-0 right-0 mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600"></span>
+      </h1>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="w-full space-y-4 md:w-[80%]"
+          className="mx-auto w-full space-y-6 md:w-[80%] lg:w-[70%]"
         >
           <FormField
             control={form.control}
@@ -141,12 +142,12 @@ const EditPost = ({ post, categories }: EditPostProps) => {
               <FormItem>
                 <FormControl>
                   <Input
-                    placeholder="My Awesome Blog"
+                    placeholder="Title of your story"
                     {...field}
-                    className="rounded-none border-x-0 border-b-2 border-t-0 text-center placeholder:text-2xl focus:border-none focus:outline-none md:text-2xl"
+                    className="border-none bg-transparent text-center text-3xl font-bold tracking-tight focus:ring-0 md:text-4xl"
                   />
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="text-center" />
               </FormItem>
             )}
           />
@@ -157,9 +158,9 @@ const EditPost = ({ post, categories }: EditPostProps) => {
               <FormItem>
                 <FormControl>
                   <Textarea
-                    placeholder="This is a description of my blog"
+                    placeholder="Brief description of your story..."
                     {...field}
-                    className="bg-gray-50 shadow-sm focus:border-indigo-500 focus:outline-indigo-500 focus:ring-indigo-500 focus:ring-offset-0 dark:bg-primary-foreground"
+                    className="min-h-[100px] rounded-xl border-indigo-100 bg-white/50 p-4 text-base shadow-sm backdrop-blur-sm focus:border-indigo-300 focus:ring-indigo-200 dark:border-indigo-800/50 dark:bg-gray-900/50"
                   />
                 </FormControl>
                 <FormMessage />
@@ -176,10 +177,10 @@ const EditPost = ({ post, categories }: EditPostProps) => {
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                   >
-                    <SelectTrigger className="w-full bg-gray-50 dark:bg-primary-foreground">
-                      <SelectValue placeholder="General" />
+                    <SelectTrigger className="h-12 rounded-xl border-indigo-100 bg-white/50 backdrop-blur-sm hover:border-indigo-200 dark:border-indigo-800/50 dark:bg-gray-900/50">
+                      <SelectValue placeholder="Choose a category" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="rounded-lg border-indigo-100 bg-white shadow-lg dark:border-indigo-800/50 dark:bg-gray-900">
                       {categories.map((i) => (
                         <SelectItem key={i.value} value={i.value}>
                           {i.label}
@@ -193,34 +194,38 @@ const EditPost = ({ post, categories }: EditPostProps) => {
             )}
           />
 
-          <div className="relative">
-            <ReactQuill
-              theme="snow"
-              className="w-full rounded-md bg-gray-50 shadow-md dark:bg-primary-foreground"
-              value={value}
-              onChange={setValue}
-            />
-            <div className="absolute right-4 top-2.5 flex gap-3">
-              <UploadThingButton
-                type="image"
-                endpoint="imageUploader"
-                setData={setImg}
+          <div className="space-y-2">
+            <div className="relative rounded-xl border border-indigo-100 bg-white/50 shadow-sm backdrop-blur-sm dark:border-indigo-800/50 dark:bg-gray-900/50">
+              <ReactQuill
+                theme="snow"
+                className="[&_.ql-container]:rounded-b-xl [&_.ql-editor]:min-h-[300px] [&_.ql-editor]:text-base [&_.ql-editor]:leading-relaxed [&_.ql-toolbar]:rounded-t-xl"
+                value={value}
+                onChange={setValue}
               />
-              <UploadThingButton
-                type="video"
-                endpoint="videoUploader"
-                setData={setVideo}
-              />
+              <div className="absolute right-4 top-2.5 flex gap-3">
+                <UploadThingButton
+                  type="image"
+                  endpoint="imageUploader"
+                  setData={setImg}
+                />
+                <UploadThingButton
+                  type="video"
+                  endpoint="videoUploader"
+                  setData={setVideo}
+                />
+              </div>
             </div>
           </div>
 
-          <UploadDropZone setImageUrl={setCover} imageUrl={cover} />
-          <Button
-            type="submit"
-            className="w-full bg-indigo-600 text-white hover:bg-indigo-700"
-          >
-            Submit
-          </Button>
+          <div className="space-y-6 pt-4">
+            <UploadDropZone setImageUrl={setCover} imageUrl={cover} />
+            <Button
+              type="submit"
+              className="w-full rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-500 px-8 py-3 text-base font-semibold text-white shadow-lg transition-all hover:from-indigo-500 hover:to-purple-500"
+            >
+              Update Story
+            </Button>
+          </div>
         </form>
       </Form>
     </div>
