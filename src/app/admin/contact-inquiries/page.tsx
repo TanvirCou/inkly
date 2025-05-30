@@ -22,9 +22,11 @@ export default async function ContactInquiriesPage() {
   return (
     <div className="p-6">
       <div className="mb-8 space-y-1">
-        <h1 className="bg-gradient-to-r from-gray-900 via-indigo-800 to-indigo-600 bg-clip-text text-2xl font-bold tracking-tight text-transparent dark:from-white dark:via-indigo-300 dark:to-indigo-500">
-          User Inquiries
-        </h1>
+        <div className="relative inline-block">
+          <h1 className="bg-gradient-to-r from-gray-900 via-indigo-800 to-indigo-600 bg-clip-text text-2xl font-bold tracking-tight text-transparent dark:from-white dark:via-indigo-300 dark:to-indigo-500">
+            User Inquiries
+          </h1>
+        </div>
 
         <p className="text-sm text-gray-600 dark:text-gray-400">
           View and manage contact form submissions

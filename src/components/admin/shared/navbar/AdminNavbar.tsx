@@ -19,11 +19,11 @@ const AdminNavbar = () => {
         </Link>
       </div>
       <div className="flex items-center gap-4">
-        <ToggleButton />
-
         <SignedIn>
           <UserButton />
         </SignedIn>
+
+        <ToggleButton />
       </div>
     </div>
   );

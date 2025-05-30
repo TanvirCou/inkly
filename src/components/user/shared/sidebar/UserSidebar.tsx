@@ -1,13 +1,4 @@
-import {
-  Bookmark,
-  ChevronUp,
-  ClipboardList,
-  Contact,
-  Home,
-  ShieldHalf,
-  SquareActivity,
-  UserPen,
-} from 'lucide-react';
+import { ChevronUp, ShieldHalf } from 'lucide-react';
 
 import {
   Sidebar,
@@ -32,39 +23,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { getSingleUser } from '@/lib/api/fetch-users';
 import { Admin } from '@/lib/types/types';
 import { SignOutButton } from '@clerk/nextjs';
-
-const items = [
-  {
-    title: 'Home',
-    url: '/',
-    icon: Home,
-  },
-  {
-    title: 'Information',
-    url: '/user/information',
-    icon: Contact,
-  },
-  {
-    title: 'Customize Info',
-    url: '/user/customize-bio',
-    icon: UserPen,
-  },
-  {
-    title: 'All Posts',
-    url: '/user/all-posts',
-    icon: ClipboardList,
-  },
-  {
-    title: 'Saved Posts',
-    url: '/user/saved-posts',
-    icon: Bookmark,
-  },
-  {
-    title: 'Activity',
-    url: '/user/activity',
-    icon: SquareActivity,
-  },
-];
+import SidebarItems from './SidebarItems';
 
 async function UserSidebar() {
   const user: Admin = await getSingleUser();
@@ -92,18 +51,7 @@ async function UserSidebar() {
         <SidebarGroup>
           <SidebarGroupLabel>Application</SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu>
-              {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <Link href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
+            <SidebarItems />
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
