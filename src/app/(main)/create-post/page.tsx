@@ -1,4 +1,4 @@
-import CreatePostForm from '@/components/shared/create-post/CreatePostForm';
+import CreatePostForm from '@/components/create-post/CreatePostForm';
 import { getAllCategories } from '@/lib/api/fetch-categories';
 import { Category } from '@/lib/types/types';
 import { Metadata } from 'next';

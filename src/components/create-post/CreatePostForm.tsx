@@ -30,7 +30,7 @@ const ReactQuill = dynamic(() => import('react-quill-new'), {
   loading: () => {
     return (
       <div className="flex h-[150px] w-full items-center justify-center">
-        <p>Loading...</p>
+        <Loading />
       </div>
     );
   },
@@ -41,6 +41,7 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '@clerk/nextjs';
 import { useToast } from '@/hooks/use-toast';
 import { Category } from '@/lib/types/types';
+import Loading from '@/app/loading';
 
 const formSchema = z.object({
   title: z

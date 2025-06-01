@@ -1,4 +1,11 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Inkly | Page Not Found',
+  description:
+    'The page you are looking for does not exist. Please check the URL or navigate to the homepage.',
+};
 
 export default function NotFound() {
   return (

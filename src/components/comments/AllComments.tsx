@@ -22,13 +22,13 @@ const AllComments = async ({ postId }: { postId: string }) => {
                 <Avatar className="h-full w-full">
                   <AvatarImage src={comment.user?.img} alt="User" />
                   <AvatarFallback className="bg-gradient-to-br from-indigo-100 to-purple-100 uppercase dark:from-indigo-900 dark:to-purple-900">
-                    {comment.user?.username?.substring(0, 2) || 'U'}
+                    {comment.user?.firstName?.charAt(0) || 'U'}
                   </AvatarFallback>
                 </Avatar>
               </div>
               <div>
                 <h4 className="bg-gradient-to-br from-gray-900 to-gray-600 bg-clip-text text-base font-bold text-transparent dark:from-white dark:to-gray-200">
-                  {comment.user?.username}
+                  {comment.user?.firstName} {comment.user?.lastName}
                 </h4>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
                   {formatDistanceToNow(new Date(comment.createdAt), {

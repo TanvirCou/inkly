@@ -10,9 +10,6 @@ export default function Loading() {
             <div className="h-3 w-3 animate-[bounce_0.9s_ease-in-out_infinite_300ms] rounded-full bg-indigo-600"></div>
           </div>
         </div>
-        <h2 className="mt-4 text-xl font-medium text-gray-700 dark:text-gray-200">
-          Loading
-        </h2>
         <p className="text-sm text-gray-500 dark:text-gray-300">
           Please wait while we prepare your content...
         </p>
