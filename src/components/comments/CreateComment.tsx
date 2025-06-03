@@ -73,14 +73,6 @@ const CreateComment = ({ postId }: { postId: string }) => {
 
   return (
     <>
-      <div className="mb-12 flex items-center gap-4">
-        <h2 className="relative bg-gradient-to-r from-gray-900 via-indigo-800 to-indigo-600 bg-clip-text text-2xl font-bold text-transparent dark:from-white dark:via-indigo-300 dark:to-indigo-500">
-          Comments
-          <span className="absolute -bottom-2 left-0 h-1 w-20 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600"></span>
-        </h2>
-        <div className="h-px flex-1 bg-gradient-to-r from-indigo-100 via-purple-50 to-transparent dark:from-indigo-800/50 dark:via-purple-900/30 dark:to-transparent"></div>
-      </div>
-
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="mb-12">
           <FormField

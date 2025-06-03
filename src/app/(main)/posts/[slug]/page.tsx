@@ -109,7 +109,28 @@ const PostDetailPage = async ({
           />
 
           <div className="mt-16 border-t border-indigo-100 pt-12 dark:border-indigo-800">
-            <CreateComment postId={post._id} />
+            <div className="mb-12 flex items-center gap-4">
+              <h2 className="relative bg-gradient-to-r from-gray-900 via-indigo-800 to-indigo-600 bg-clip-text text-2xl font-bold text-transparent dark:from-white dark:via-indigo-300 dark:to-indigo-500">
+                Comments
+                <span className="absolute -bottom-2 left-0 h-1 w-20 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600"></span>
+              </h2>
+              <div className="h-px flex-1 bg-gradient-to-r from-indigo-100 via-purple-50 to-transparent dark:from-indigo-800/50 dark:via-purple-900/30 dark:to-transparent"></div>
+            </div>
+            {role ? (
+              <CreateComment postId={post._id} />
+            ) : (
+              <div className="mb-12 flex items-center justify-center gap-3 rounded-xl border border-indigo-100/50 bg-gradient-to-br from-white via-indigo-50/30 to-purple-50/30 p-6 text-center shadow-lg dark:border-indigo-800/50 dark:from-gray-900/80 dark:via-indigo-950/30 dark:to-purple-950/30">
+                <p className="text-lg font-medium text-gray-600 dark:text-gray-300">
+                  You must be logged in to leave a comment
+                </p>
+                <Link
+                  href="/sign-in"
+                  className="rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-4 py-2 text-sm font-medium text-white shadow-md transition-all hover:from-indigo-500 hover:to-purple-500"
+                >
+                  Login
+                </Link>
+              </div>
+            )}
             <AllComments postId={post._id} />
           </div>
         </div>
