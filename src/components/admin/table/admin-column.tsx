@@ -66,7 +66,7 @@ export const adminColumns: ColumnDef<Admin>[] = [
             </AvatarFallback>
           </Avatar>
 
-          <p>
+          <p className="whitespace-nowrap">
             {user.firstName} {user.lastName}
           </p>
         </div>
@@ -104,7 +104,11 @@ export const adminColumns: ColumnDef<Admin>[] = [
     header: 'Created At',
     cell: ({ row }) => {
       const user = row.original;
-      return <p>{format(new Date(user.createdAt), 'MMM d, yyyy')}</p>;
+      return (
+        <p className="whitespace-nowrap">
+          {format(new Date(user.createdAt), 'MMM d, yyyy')}
+        </p>
+      );
     },
   },
   {

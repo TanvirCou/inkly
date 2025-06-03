@@ -23,7 +23,7 @@ export default async function CustomizeInfoPage() {
     <div className="p-6">
       <div className="mb-8 space-y-1">
         <div className="relative inline-block">
-          <h1 className="bg-gradient-to-r from-gray-900 via-indigo-800 to-indigo-600 bg-clip-text text-2xl font-bold tracking-tight text-transparent dark:from-white dark:via-indigo-300 dark:to-indigo-500">
+          <h1 className="bg-gradient-to-r from-gray-900 via-indigo-800 to-indigo-600 bg-clip-text text-xl font-bold tracking-tight text-transparent dark:from-white dark:via-indigo-300 dark:to-indigo-500 sm:text-2xl">
             Customize Information
           </h1>
         </div>

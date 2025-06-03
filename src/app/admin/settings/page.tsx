@@ -23,7 +23,7 @@ export default async function SettingsPage() {
     <div className="min-h-screen space-y-8 p-8">
       <div className="space-y-2">
         <div className="relative inline-block">
-          <h1 className="bg-gradient-to-r from-gray-900 via-indigo-800 to-indigo-600 bg-clip-text text-3xl font-bold tracking-tight text-transparent dark:from-white dark:via-indigo-300 dark:to-indigo-500">
+          <h1 className="bg-gradient-to-r from-gray-900 via-indigo-800 to-indigo-600 bg-clip-text text-2xl font-bold tracking-tight text-transparent dark:from-white dark:via-indigo-300 dark:to-indigo-500 md:text-3xl">
             Website Settings
           </h1>
         </div>

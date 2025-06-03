@@ -47,10 +47,10 @@ const page = async () => {
   return (
     <div className="space-y-8 p-8">
       <div className="flex items-center justify-between">
-        <h1 className="bg-gradient-to-r from-gray-900 via-indigo-800 to-indigo-600 bg-clip-text text-3xl font-bold tracking-tight text-transparent dark:from-white dark:via-indigo-300 dark:to-indigo-500">
+        <h1 className="bg-gradient-to-r from-gray-900 via-indigo-800 to-indigo-600 bg-clip-text text-2xl font-bold tracking-tight text-transparent dark:from-white dark:via-indigo-300 dark:to-indigo-500 md:text-3xl">
           Dashboard Overview
         </h1>
-        <div className="text-sm text-gray-500 dark:text-gray-400">
+        <div className="text-right text-sm text-gray-500 dark:text-gray-400">
           Last updated: {new Date().toLocaleDateString()}
         </div>
       </div>

@@ -75,14 +75,14 @@ export const savedPostsColumns: ColumnDef<Post>[] = [
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <p>
+                <p className="whitespace-nowrap">
                   {post.title.length > 30
                     ? `${post.title.slice(0, 30)}...`
                     : post.title}
                 </p>
               </TooltipTrigger>
               <TooltipContent>
-                <p>{post.title}</p>
+                <p className="whitespace-nowrap">{post.title}</p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
@@ -97,6 +97,7 @@ export const savedPostsColumns: ColumnDef<Post>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+          className="pl-12 lg:pl-0"
         >
           Author
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -106,7 +107,7 @@ export const savedPostsColumns: ColumnDef<Post>[] = [
     cell: ({ row }) => {
       const post = row.original;
       return (
-        <p>
+        <p className="pl-12 lg:pl-0">
           {post.user.firstName} {post.user.lastName}
         </p>
       );
@@ -137,7 +138,11 @@ export const savedPostsColumns: ColumnDef<Post>[] = [
     header: 'Created At',
     cell: ({ row }) => {
       const post = row.original;
-      return <p>{format(new Date(post.createdAt), 'MMM d, yyyy')}</p>;
+      return (
+        <p className="whitespace-nowrap">
+          {format(new Date(post.createdAt), 'MMM d, yyyy')}
+        </p>
+      );
     },
   },
   {

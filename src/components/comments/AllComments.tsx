@@ -4,9 +4,13 @@ import { getComments } from '@/lib/api/fetch-comments';
 import { Comment } from '@/lib/types/types';
 import { formatDistanceToNow } from 'date-fns';
 import DeleteComment from './DeleteComment';
+import { auth } from '@clerk/nextjs/server';
 
 const AllComments = async ({ postId }: { postId: string }) => {
   const comments: Comment[] = await getComments(postId);
+  const { sessionClaims } = await auth();
+  const role = (sessionClaims?.metadata as { role: string })?.role;
+  const userId = (sessionClaims?.metadata as { userId: string })?.userId;
 
   return (
     <div className="space-y-8">
@@ -37,7 +41,9 @@ const AllComments = async ({ postId }: { postId: string }) => {
                 </p>
               </div>
             </div>
-            <DeleteComment commentId={comment._id} />
+            {(role === 'admin' || userId === comment.user?._id) && (
+              <DeleteComment commentId={comment._id} />
+            )}
           </div>
           <p className="text-base leading-relaxed text-gray-600 dark:text-gray-300">
             {comment.desc}

@@ -16,8 +16,8 @@ const page = async () => {
   return (
     <div className="p-4">
       <div className="flex items-center justify-between">
-        <div className="space-y-1">
-          <h1 className="bg-gradient-to-r from-gray-900 via-indigo-800 to-indigo-600 bg-clip-text text-2xl font-bold tracking-tight text-transparent dark:from-white dark:via-indigo-300 dark:to-indigo-500">
+        <div className="w-[50%] space-y-1 sm:w-auto">
+          <h1 className="bg-gradient-to-r from-gray-900 via-indigo-800 to-indigo-600 bg-clip-text text-xl font-bold tracking-tight text-transparent dark:from-white dark:via-indigo-300 dark:to-indigo-500 sm:text-2xl">
             Admins
           </h1>
           <p className="text-sm text-gray-600 dark:text-gray-400">

@@ -63,11 +63,11 @@ const PostDetailPage = async ({
               )}
             </div>
 
-            <h1 className="mb-6 bg-gradient-to-br from-gray-900 via-indigo-800 to-indigo-600 bg-clip-text text-4xl font-bold text-transparent dark:from-white dark:via-indigo-300 dark:to-indigo-500 md:text-5xl">
+            <h1 className="mb-6 bg-gradient-to-br from-gray-900 via-indigo-800 to-indigo-600 bg-clip-text text-3xl font-bold text-transparent dark:from-white dark:via-indigo-300 dark:to-indigo-500 md:text-5xl">
               {post.title}
             </h1>
 
-            <p className="mb-6 text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+            <p className="text-md mb-6 leading-relaxed text-gray-600 dark:text-gray-300 md:text-lg">
               {post.desc}
             </p>
 
@@ -104,7 +104,7 @@ const PostDetailPage = async ({
         {/* Main content */}
         <div className="lg:w-3/4">
           <div
-            className="prose prose-lg prose-indigo dark:prose-invert prose-headings:bg-gradient-to-br prose-headings:from-gray-900 prose-headings:to-gray-600 prose-headings:bg-clip-text prose-headings:text-transparent prose-headings:dark:from-white prose-headings:dark:to-gray-200 prose-a:text-indigo-600 prose-a:dark:text-indigo-400 max-w-none"
+            className="prose prose-lg prose-indigo dark:prose-invert prose-headings:bg-gradient-to-br prose-headings:from-gray-900 prose-headings:to-gray-600 prose-headings:bg-clip-text prose-headings:text-transparent prose-headings:dark:from-white prose-headings:dark:to-gray-200 prose-a:text-indigo-600 prose-a:dark:text-indigo-400 max-w-none text-justify"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 

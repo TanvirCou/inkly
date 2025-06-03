@@ -64,7 +64,11 @@ export const categoryColumns: ColumnDef<Category>[] = [
     header: 'Created At',
     cell: ({ row }) => {
       const category = row.original;
-      return <p>{format(new Date(category.createdAt), 'MMM d, yyyy')}</p>;
+      return (
+        <p className="whitespace-nowrap">
+          {format(new Date(category.createdAt), 'MMM d, yyyy')}
+        </p>
+      );
     },
   },
   {
