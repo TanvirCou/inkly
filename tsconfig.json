@@ -33,7 +33,9 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "commitlint.config.ts", "src/app/admin/today-posts",
+    "commitlint.config.ts",
+    "src/app/admin/today-posts",
+    ".next/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
