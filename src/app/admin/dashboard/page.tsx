@@ -1,20 +1,25 @@
-import React from 'react';
+import PlatformOverviewChart from '@/components/admin/dashboard/PlatformOverviewChart';
+import PostsByCategoryChart from '@/components/admin/dashboard/PostsByCategoryChart';
+import TopPostsByViewsChart from '@/components/admin/dashboard/TopPostsByViewsChart';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import {
-  Users,
-  FileText,
-  Activity,
-  Clock,
-  MessageSquareText,
-  MailOpen,
-} from 'lucide-react';
-import { getAllUsers } from '@/lib/api/fetch-users';
-import { getAllComments } from '@/lib/api/fetch-comments';
-import { getAllPosts } from '@/lib/api/fetch-posts';
-import { Post, Comment, ActivityType } from '@/lib/types/types';
 import { getAllActivities } from '@/lib/api/fetch-activities';
-import { formatDistanceToNow } from 'date-fns';
+import { getAllComments } from '@/lib/api/fetch-comments';
 import { getInquiries } from '@/lib/api/fetch-inquiries';
+import { getAllPosts } from '@/lib/api/fetch-posts';
+import { getAllUsers } from '@/lib/api/fetch-users';
+import { ActivityType, Comment, Post } from '@/lib/types/types';
+import { formatDistanceToNow } from 'date-fns';
+import {
+  Activity,
+  BarChart2,
+  Clock,
+  FileText,
+  MailOpen,
+  MessageSquareText,
+  PieChart,
+  TrendingUp,
+  Users,
+} from 'lucide-react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -102,6 +107,52 @@ const page = async () => {
             <div className="text-2xl font-bold text-gray-900 dark:text-gray-100">
               {allInquiries.length}
             </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <Card className="group relative overflow-hidden transition-all hover:shadow-md dark:hover:shadow-indigo-900/10">
+          <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 to-purple-500/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+          <CardHeader className="relative">
+            <CardTitle className="flex items-center gap-2 text-base">
+              <PieChart className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
+              Posts by Category
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="relative">
+            <PostsByCategoryChart posts={allPosts} />
+          </CardContent>
+        </Card>
+
+        <Card className="group relative overflow-hidden transition-all hover:shadow-md dark:hover:shadow-indigo-900/10">
+          <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 to-purple-500/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+          <CardHeader className="relative">
+            <CardTitle className="flex items-center gap-2 text-base">
+              <TrendingUp className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
+              Top Posts by Views
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="relative">
+            <TopPostsByViewsChart posts={allPosts} />
+          </CardContent>
+        </Card>
+
+        <Card className="group relative overflow-hidden transition-all hover:shadow-md dark:hover:shadow-indigo-900/10">
+          <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 to-purple-500/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+          <CardHeader className="relative">
+            <CardTitle className="flex items-center gap-2 text-base">
+              <BarChart2 className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
+              Platform Overview
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="relative">
+            <PlatformOverviewChart
+              users={allUsers.length}
+              posts={allPosts.length}
+              comments={allComments.length}
+              inquiries={allInquiries.length}
+            />
           </CardContent>
         </Card>
       </div>

@@ -4,27 +4,21 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import {
   AlignLeft,
   CalendarClock,
   ClipboardList,
-  Home,
   LayoutDashboard,
   Mailbox,
   Settings,
   Star,
   Users,
 } from 'lucide-react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const items = [
-  {
-    title: 'Home',
-    url: '/',
-    icon: Home,
-  },
   {
     title: 'Dashboard',
     url: '/admin/dashboard',

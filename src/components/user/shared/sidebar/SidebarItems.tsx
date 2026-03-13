@@ -4,24 +4,18 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import {
   Bookmark,
   ClipboardList,
   Contact,
-  Home,
   SquareActivity,
   UserPen,
 } from 'lucide-react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const items = [
-  {
-    title: 'Home',
-    url: '/',
-    icon: Home,
-  },
   {
     title: 'Information',
     url: '/user/information',

@@ -1,6 +1,4 @@
-import React from 'react';
-import { format } from 'date-fns';
-import { CalendarDays, Mail, User } from 'lucide-react';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
   Card,
   CardContent,
@@ -8,8 +6,9 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { getSingleUser } from '@/lib/api/fetch-users';
+import { format } from 'date-fns';
+import { CalendarDays, Mail, User } from 'lucide-react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -34,7 +33,7 @@ async function InformationPage() {
         </p>
       </div>
 
-      <div className="mx-auto max-w-4xl space-y-6">
+      <div className="mx-auto w-full space-y-6">
         {/* Profile Card */}
         <Card className="overflow-hidden border-gray-200/50 transition-all duration-300 hover:border-indigo-500/20 dark:border-gray-800/50 dark:hover:border-indigo-500/20">
           <CardHeader className="border-b border-gray-100 bg-white/50 dark:border-gray-800/50 dark:bg-gray-950/50">

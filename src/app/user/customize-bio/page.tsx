@@ -32,7 +32,7 @@ export default async function CustomizeInfoPage() {
         </p>
       </div>
 
-      <div className="mx-auto max-w-3xl">
+      <div className="mx-auto w-full">
         <Card className="overflow-hidden border-gray-200/50 transition-all duration-300 hover:border-indigo-500/20 dark:border-gray-800/50 dark:hover:border-indigo-500/20">
           <CardHeader className="border-b border-gray-100 bg-white/50 dark:border-gray-800/50 dark:bg-gray-950/50">
             <div className="space-y-1.5">

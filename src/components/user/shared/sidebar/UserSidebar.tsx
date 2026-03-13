@@ -1,5 +1,12 @@
-import { ChevronUp, ShieldHalf } from 'lucide-react';
+import { ChevronUp, Feather } from 'lucide-react';
 
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 import {
   Sidebar,
   SidebarContent,
@@ -12,17 +19,10 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import Link from 'next/link';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { getSingleUser } from '@/lib/api/fetch-users';
 import { Admin } from '@/lib/types/types';
 import { SignOutButton } from '@clerk/nextjs';
+import Link from 'next/link';
 import SidebarItems from './SidebarItems';
 
 async function UserSidebar() {
@@ -30,15 +30,15 @@ async function UserSidebar() {
 
   return (
     <Sidebar collapsible="icon">
-      <SidebarHeader>
+      <SidebarHeader className="pt-4">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
               <Link
                 href="/"
-                className="font-[Poppins] text-xl font-semibold text-indigo-600"
+                className="font-[Poppins] text-xl font-semibold text-indigo-600 hover:text-indigo-600"
               >
-                <ShieldHalf size={20} />
+                <Feather size={18} className="text-indigo-600" />
                 <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 bg-clip-text font-[Poppins] text-xl font-bold text-transparent">
                   Inkly
                 </span>
