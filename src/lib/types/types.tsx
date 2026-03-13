@@ -13,17 +13,17 @@ export type User = {
 
 export type Post = {
   _id: string;
-  user: User; // or user: any if you don't have a User type yet
+  user: User;
   img: string;
   title: string;
   slug: string;
   desc: string;
   category: string;
-  content: string; // HTML string
+  content: string;
   isFeatured: boolean;
   visit: number;
-  createdAt: string; // ISO date string
-  updatedAt: string; // ISO date string
+  createdAt: string;
+  updatedAt: string;
   __v: number;
 };
 

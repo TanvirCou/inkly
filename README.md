@@ -5,10 +5,11 @@
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3-blue)](https://tailwindcss.com/)
 [![Clerk](https://img.shields.io/badge/Clerk-Auth-purple)](https://clerk.com/)
 [![ShadcnUI](https://img.shields.io/badge/ShadcnUI-Library-black)](https://ui.shadcn.com/)
+[![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-CI/CD-blue?logo=github-actions&logoColor=white)](https://github.com/features/actions)
 
 ## Overview
 
-**Inkly** is a high-performance, responsive blog web application built with Next.js 15, TypeScript, and Tailwind CSS. It provides a seamless writing and reading experience with dedicated dashboards for **Users** (Authors) and **Administrators**, featuring secure multi-role authentication via Clerk and advanced content management tools.
+**Inkly** is a high-performance, responsive blog web application built with Next.js 15, TypeScript, and Tailwind CSS. It provides a seamless writing and reading experience with dedicated dashboards for **Users** (Authors) and **Administrators**, featuring secure multi-role authentication via Clerk, advanced content management tools, and a robust CI/CD pipeline integrated with **GitHub Actions**.
 
 ---
 
@@ -112,6 +113,7 @@ For testing the application with different roles:
 | **Content Editor** | React Quill New 3.4.6 |
 | **Form Management** | React Hook Form 7.56.2 + Zod 3.24.4 |
 | **Image Upload** | Uploadthing 7.4.0 |
+| **CI/CD** | GitHub Actions |
 
 ---
 
