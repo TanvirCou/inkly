@@ -105,7 +105,7 @@ For testing the application with different roles:
 
 | Category | Technology |
 |---|---|
-| **Framework** | Next.js 15.2.5 |
+| **Framework** | Next.js 15.2.8 |
 | **Language** | TypeScript 5 |
 | **Styling** | Tailwind CSS 3.4.1 + shadcn/ui |
 | **Authentication** | Clerk 6.19.0 |
