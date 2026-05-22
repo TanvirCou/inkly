@@ -196,6 +196,7 @@ The application will be available at [http://localhost:3000](http://localhost:30
 ## 🔮 Future Enhancements
 
 - **Real-time Comments** — Live interaction on blog posts using WebSockets.
+- **Newsletter Subscription** — Integration with services like Mailchimp or Resend.
 - **AI-Powered Content Suggestions** — Personalized reading recommendations based on user interests.
 - **Push Notifications** — Real-time alerts when subscribed authors publish new content.
 - **Multi-language Support (i18n)** — Expand reach with support for multiple languages.
