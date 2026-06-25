@@ -30,9 +30,9 @@
 
 For testing the application with different roles:
 
-| Role | Email | Password |
-|---|---|---|
-| **Standard User** | `kta516930@gmail.com` | `tanvir1234` |
+| Role              | Email                     | Password     |
+| ----------------- | ------------------------- | ------------ |
+| **Standard User** | `kta516930@gmail.com`     | `tanvir1234` |
 | **Administrator** | `ahmed.tnvr999@gmail.com` | `tanvir1234` |
 
 ---
@@ -90,7 +90,7 @@ For testing the application with different roles:
 
 ### Blog Details Page
 
-![Blog Details Page Screenshot](https://i.postimg.cc/C1NW1x1m/inkly-blog-details.jpg)  
+![Blog Details Page Screenshot](https://i.postimg.cc/C1NW1x1m/inkly-blog-details.jpg)
 
 ### User Dashboard
 
@@ -104,16 +104,16 @@ For testing the application with different roles:
 
 ## 🛠 Tech Stack
 
-| Category | Technology |
-|---|---|
-| **Framework** | Next.js 15.2.8 |
-| **Language** | TypeScript 5 |
-| **Styling** | Tailwind CSS 3.4.1 + shadcn/ui |
-| **Authentication** | Clerk 6.19.0 |
-| **Content Editor** | React Quill New 3.4.6 |
+| Category            | Technology                          |
+| ------------------- | ----------------------------------- |
+| **Framework**       | Next.js 15.2.8                      |
+| **Language**        | TypeScript 5                        |
+| **Styling**         | Tailwind CSS 3.4.1 + shadcn/ui      |
+| **Authentication**  | Clerk 6.19.0                        |
+| **Content Editor**  | React Quill New 3.4.6               |
 | **Form Management** | React Hook Form 7.56.2 + Zod 3.24.4 |
-| **Image Upload** | Uploadthing 7.4.0 |
-| **CI/CD** | GitHub Actions |
+| **Image Upload**    | Uploadthing 7.4.0                   |
+| **CI/CD**           | GitHub Actions                      |
 
 ---
 
@@ -131,7 +131,7 @@ For testing the application with different roles:
 **src/middleware.ts** — Clerk authentication and role-based route protection  
 **public/** — Static assets including images and icons  
 **tailwind.config.ts** — Tailwind CSS configuration  
-**next.config.ts** — Next.js configuration  
+**next.config.ts** — Next.js configuration
 
 ---
 
@@ -140,17 +140,21 @@ For testing the application with different roles:
 Follow these steps to set up the project locally:
 
 ### 1. Prerequisites
+
 Ensure you have the following installed:
+
 - [Node.js](https://nodejs.org/) (v18.x or higher)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 
 ### 2. Clone the Repository
+
 ```bash
 git clone https://github.com/TanvirCou/inkly.git
 cd inkly
 ```
 
 ### 3. Install Dependencies
+
 ```bash
 npm install
 # or
@@ -158,6 +162,7 @@ yarn install
 ```
 
 ### 4. Configure Environment Variables
+
 Create a `.env.local` file in the root directory and add the following variables:
 
 ```bash
@@ -181,6 +186,7 @@ NEXT_PUBLIC_API_URL=
 - **Backend Setup:** Follow the instructions in the [Backend Repository](https://github.com/TanvirCou/inkly-server) to get your server running and obtain the API URL.
 
 ### 5. Run the Application
+
 Start the development server:
 
 ```bash
