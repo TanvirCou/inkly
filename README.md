@@ -201,6 +201,7 @@ The application will be available at [http://localhost:3000](http://localhost:30
 
 ## 🔮 Future Enhancements
 
+- **AI Chatbot Integration** — Provide instant assistance and engage users with an intelligent conversational agent.
 - **Real-time Comments** — Live interaction on blog posts using WebSockets.
 - **AI-Powered Content Suggestions** — Personalized reading recommendations based on user interests.
 - **Push Notifications** — Real-time alerts when subscribed authors publish new content.
